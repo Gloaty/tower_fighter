@@ -58,16 +58,17 @@ if save == "y":
             break
         
     #old road
-    road1_bad_directions = ("L", "U", "D")
+    road1_bad_directions = ("L", "l", "U", "u", "D", "d")
     print("Your journey starts on the old road, overrun by raiders, and many supernatural threats. Purge these fools, as a message")
     print("to their leaders that the rightful owner had returned, and their kind are no longer welcome. ")
     print(" ")
     print("----------------------------------------------------------------------------------------------------------------------")
     print(" ")
-    for i in range(1, 1000000000000)
-    old_road1 = input("You are currently in a room. This room is empty. There is a room to the right. Which way do you want to head? (L/R/U/D)")
-    if old_road1 == road1_bad_directions:
-        print()
+    for i in range(1, 100000):
+        old_road1 = input("You are currently in a room. This room is empty. There is a room to the right. Which way do you want to head? (L/R/U/D)")
+        if old_road1 == road1_bad_directions:
+        print("You cannot head those ways. Those ways are blocked by thick foliage, and you should not go off the beaten path. ")
+        continue()
 else:
     print("Closing Game...")
     time.sleep(1)
