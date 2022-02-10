@@ -25,6 +25,7 @@ place_2_hero = highwayman
 place_3_hero = "None"
 place_4_hero = "None"
 old_road_battle_won = 0
+tutorial_skip_warning = N
 
 # riches
 # see abnormal riches and standard riches
@@ -189,8 +190,18 @@ if save == "Y":
         
             #hamlet
             print("our heroes begin making the trek to the hamlet on foot. Once they arrive, they view a desolate town, ")
-            print("old, and forgotten. However, though, it shall be enouh for an adventuring respite. ")
-            exit()
+            print("old, and forgotten. However, though, it shall be enough to give our weary heroes respite from the chill of battle. ")
+            print(" ")
+            print("---------------------------------------------------------------------------------")
+            print(" ")
+            print("The hamlet has a few buildings in it at the moment, but most of them are still under construction, awaiting your approval. ")
+            print("The stagecoach is operational, a place where new souls arrive seeking fame and fortune. ")
+            if tutorial_skip_warning == "Y":
+                print("The stagecoach has 4 poor souls on it awaiting your call to action. ")
+                exit()
+            elif tutorial_skip_warning == "N":
+                print("The stagecoach has 2 poor souls on it awaiting your call to action. ")
+                exit()
         
         print("Current Heroes: Reynauld (Crusader), Dismas (Highwayman)")
         old_road1 = input(
