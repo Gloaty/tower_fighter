@@ -191,12 +191,12 @@ int main()
         cout << "\n";
         if (sleep_count == 0){
           cout << "\n";
-          Sleep(3);
+          sleep(3);
           goto intro;
         }
         else if (sleep_count == 1){
           cout << "\n";
-          Sleep(4);
+          sleep(4);
           goto intro;
         }
 
@@ -208,7 +208,7 @@ int main()
         cout << "you willing to risk in your quest to restore the hamlet? What will you sacrifice to save the life of" << "\n";
         cout << "your favorite hero? Thankfully, there are always fresh souls arriving on the stage coach, seeking both" << "\n";
         cout << "adventure and fame in the shadow of the..." << "\n";
-        Sleep(2);
+        sleep(2);
         cout << "\n";
         cout << "------------------------------------------------------------------------------------------------------";
         cout << "\n";
@@ -230,21 +230,21 @@ int main()
             int break_counter = 0;
                 for(break_counter=0;break_counter<2;break_counter++) {
                     cout << "                                     OPENING SAVE.";
-                    Sleep(1);
+                    sleep(1);
                     cout << "\n";
                     cout << "\n";
                     cout << "                                     -------------";
                     cout << "\n";
                     cout << "\n";
                     cout << "                                     OPENING SAVE..";
-                    Sleep(1);
+                    sleep(1);
                     cout << "\n";
                     cout << "\n";
                     cout << "                                     -------------";
                     cout << "\n";
                     cout << "\n";
                     cout << "                                     OPENING SAVE...";
-                    Sleep(1);
+                    sleep(1);
                     cout << "\n" << "\n";
                     cout << "                                     -------------";
                     cout << "\n" << "\n";
@@ -265,7 +265,7 @@ int main()
                     cout << "Head to the right? (Y/N)";
                     cin >> old_road1;
                     if(old_road1 == 'Y') {
-                        Sleep(1);
+                        sleep(1);
                         char old_road_tent;
                         cout << "Reynauld and Dismas push forward, towards the hamlet. They discover an abandoned tent along the way. Investigate? (Y/N)";
                         cin >> old_road_tent;
@@ -274,14 +274,14 @@ int main()
                             cout << "--------------------------------------------------------------------------------------------";
                             cout << "\n" << "\n";
                             cout << highwayman << " reaches inside the tent and pulls out some riches. ";
-                            Sleep(1);
+                            sleep(1);
                             cout << "\n" << "\n";
                             cout << "--------------------------------------------------------------------------------------------";
                             cout << "\n" << "\n";
                             cout << "                                         RICHES";
                             cout << "\n" << "\n";
                             cout << "--------------------------------------------------------------------------------------------";
-                            Sleep(1);
+                            sleep(1);
                             cout << "\n" << "\n";
                             if (abnormal_inventory != "None") {
                                 string old_road_fight;
@@ -496,7 +496,7 @@ int main()
                                                 cout << "That catch is the fact that the gun will never critical hit. ";
                                                 cout << "\n" << "\n";
                                                 int total_bullet_damage = 0;
-                                                Sleep(2);
+                                                sleep(2);
                                                 cout << monster_health;
                                                 int i = 0;
                                                 for (i; i > 4; i=i+1) {
@@ -518,7 +518,7 @@ int main()
                                                         old_road_battle_won = 1;
                                                         goto hamlet;
                                                     }
-                                                    Sleep(1);
+                                                    sleep(1);
                                                 }
                                             }
                                             if (highwayman_attack == "D") {
@@ -549,16 +549,16 @@ int main()
                                             }
                                         }
                                     //monster: deal Damage 
-                                    Sleep(1);
+                                    sleep(1);
                                     cout << "\n" << "\n";
                                     cout << "The monster takes a swing to rend the flesh!";
-                                    Sleep(1);
+                                    sleep(1);
                                     cout << "\n" << "\n";
                                     cout << "--------------------------------------------";
                                     cout << "\n";
                                     if (monster_option == "Shank") {
                                         cout << "Monster Attack: Shank";
-                                        Sleep(1);
+                                        sleep(1);
                                         cout << "Shank is an attack that can hit any member in your party at random. ";
                                         cout << "This move typically has a mid-range damage output. ";
                                         cout << "\n";
@@ -566,7 +566,7 @@ int main()
                                       }
                                       else if (monster_option == "Point Blank Shot") {
                                         cout << "Monster Attack: Point Blank Shot";
-                                        Sleep(1);
+                                        sleep(1);
                                         cout << "Point Blank Shot can only hit the hero in the first position in the party, ";
                                         cout << "and typically deals mid-range damage. ";
                                         cout << "\n";
@@ -574,22 +574,22 @@ int main()
                                       }
                                       else if (monster_option == "Rain of Whips") {
                                         cout << "Monster Attack: Rain of Whips";
-                                        Sleep(1);
+                                        sleep(1);
                                         cout << "Rain of Whips hits all party members, but the cost of that is";
                                         cout << "a low damage output per party member. ";
                                         cout << "\n";
                                         cout << "------------------------------------------------------";     }
-                                    Sleep(1);
+                                    sleep(1);
                                     place_1_hero_health = place_1_hero_health - place_1_hero_damage;
                                     place_2_hero_health = place_2_hero_health - place_2_hero_damage;
-                                    Sleep(1);
+                                    sleep(1);
                                     cout << "\n";
                                     cout << "Damage Dealt to " << crusader << ": " << place_1_hero_damage << "\n";
                                     cout << "Damage Dealt to " << highwayman << ": " << place_2_hero_damage;
                                     cout << "\n" << "\n";
                                     cout << "---------------------------------------------------------------";
                                     cout << "\n" << "\n";
-                                    Sleep(1);
+                                    sleep(1);
                                     cout << "Health of " << crusader << ": " << place_1_hero_health << "\n";
                                     cout << "Health of " << highwayman << ": " << place_2_hero_health << "\n";
                                     cout << "\n";
@@ -616,7 +616,7 @@ int main()
                                 cout << "The stagecoach is operational,  pace where fesh souls arrive to the hamlet, seeking fame and fotune. ";
                                 if (tutorial_skip_warning == "Y") {
                                     place_1_hero = "None";
-                                    place_2_hero = "None";
+                                    place_2_hero = "None";            
                                     place_3_hero = "None";
                                     place_4_hero = "None";
                                     cout << "The stagecoach has 4 poor souls on it awaiting your call to action. ";
@@ -625,7 +625,7 @@ int main()
                                     stagecoach_hero_3 = "Plague Doctor";
                                     stagecoach_hero_4 = "Vestal";
                                 }
-                                else if (tutorial_skip_warning == "N") {
+                                else if (tutorial_skip_warning == "N") {                                                                                                                         
                                     stagecoach_hero_1 = "Plague Doctor";
                                     stagecoach_hero_2 = "Vestal";
                                     stagecoach_hero_3 = "None";
@@ -647,16 +647,19 @@ int main()
                                         vestal = "Junia";
                                     }
                                     else if (stagecoach_hero_choice == "B") {
-                                        string standby_heroes [2] = {"P", "V"};
+                                        string standby_heroes [2] = ("P", "V");
                                         plague_doctor = "Paracelcus";
                                         vestal = "Junia";
                                     }
                                 }
-                                string assign_choice = "NULL";
+                                hero_assign:{
+                                    string assign_choice = "NULL";
                                 int assign_place = 0;
                                 string assign_hero = "NULL";
-                                string plague_doctor_abilities [3] = {"Knife", "Blighted Throw", "Buff"};
-                                string vestal_abilities [3] = {"Mace Swing", "Strike of the Gods", "Holy Heal"};
+                                string plague_doctor_abilities [3] = ("Knife", "Blighted Throw", "Buff");
+                                string vestal_abilities [3] = ("Mace Swing", "Strike of the Gods", "Holy Heal");
+                                cout << "Assigning heroes is permanent, so be ";
+                                cout << "confident in your choices before you make them. ";
                                 cout << "Would you like to assign these heroes? (Y/N)";
                                 cin >> assign_choice;
                                 if (assign_choice == "Y") {
@@ -665,16 +668,44 @@ int main()
                                     cout << "Second: " << place_2_hero << "\n";
                                     cout << "Third: " << place_3_hero << "\n";
                                     cout << "Fourth: " << place_4_hero << "\n" << "\n";
-                                    cout << "Which lace would you like to assign a hero to? (1/2/3/4)";
+                                    cout << "Which place would you like to assign a hero to? (1/2/3/4)";
                                     cin >> assign_place;
                                     if (assign_place == 1) {
                                         cout << "Who would you like to assign to place 1? ";
                                         cout << "Available Heroes: " << standby_heroes;
                                         cout << "Which hero do you want fill place 1?";
+                                        cout << "C = Crusader" << "\n";
+                                        cout << "H = Highwayman" << "\n";
+                                        cout << "P = Plague Doctor" << "\n";
+                                        cout << "V = Vestal" << "\n";
                                         cin >> assign_hero;
-                                        //temporary comment out / if (place_1_hero == "None" && assign_hero in standby_heroes) {
-                                            //work on character place assignment later
-                                        //temporary comment out for testing purposes / }
+                                        if (place_1_hero == "None") {
+                                            if (assign_hero == standby_heroes) {
+                                                place_1_hero = assign_hero;
+                                            }
+                                            else if (assign_hero != standby_heroes) {
+                                                cout << "Hero is not available! ";
+                                                goto hero_assign;
+                                            }
+                                        }
+                                        else if (place_1_hero != "None") {
+                                            cout << "A hero is already assigned to this space!"
+                                        }
+                                    }
+                                    else if (assign_place == "2") {
+                                        cout << "Who would you like to assign to place 2? ";
+                                        cout << "Available Heroes: " << standby_heroes;
+                                        cout << "Which hero do you want fill place 1?";
+                                        cout << "C = Crusader" << "\n";   
+                                        cout << "H = Highwayman" << "\n";
+                                        cout << "P = Plague Doctor" << "\n";   
+                                        cout << "V = Vestal" << "\n";
+                                        cin >> assign_hero;
+                                        if(place_2_hero == "None") {
+                                            if (assign_hero == standby_heroes) {
+                                                place_2_hero = assign_hero;
+                                            }
+                                        }                              
                                     }
                                 }
                             }
@@ -697,7 +728,7 @@ int main()
                             cout << "Resetting..." << "\n" << "\n";
                             cout << "-------------------------------------------------------------------------------------------";
                             cout << "\n" << "\n";
-                            Sleep(1);
+                            sleep(1);
                             continue;
                         }
                         else if(tutorial_skip_warning == 'Y') {
