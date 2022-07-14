@@ -14,6 +14,11 @@ void goldCheck() {
     int gold;
     string inventory;
     string abnormal_inventory;
+    string battle_riches;
+    string abnormal_inventory = "None";
+    srand((unsigned) time(NULL));
+    int riches_random = 1+ (rand() % 100);
+
     if (inventory == "250 Gold") {
         gold = gold + 250;
     }
@@ -95,7 +100,9 @@ void goldCheck() {
         gold = gold + 500;   
     }
 
-    //copy boudary
+    battle_riches = inventory;
+    battle_riches = abnormal_inventory;
+
     }
 
 int main()
@@ -455,6 +462,7 @@ int main()
                                             if (crit_random <= crit_chance) {
                                                 herodamage = 12;
                                             }
+                                            string battle_rewards;
                                             monster_health = monster_health - herodamage;
                                             cout << "\n" << "\n";
                                             cout << "--------------------------------------------------------------------------------------------";
@@ -467,7 +475,6 @@ int main()
                                             if (monster_health <= 0) {
                                                 cout << "As the fiend falls, a faint hope blossoms. ";
                                                 cout << "Battle won!";
-                                                string battle_rewards = standard_riches[RanIndex];
                                                 cout << "Rewards: " << battle_rewards;
                                                 cout << gold;
                                                 old_road_battle_won = 1;
@@ -832,6 +839,7 @@ int main()
                                     goto mission_choice;
                                 }
                                 mission_choice:{
+                                    string area_insurance;
                                     string pause_choice;
                                     string accept_mission;
                                     string area_choice;
@@ -855,7 +863,20 @@ int main()
                                         }
                                         else if (area_choice == "F") {
                                             cout << "Selected Area: Farmstead..." << "\n";
-                                            cout << "Are you sure that you want to enter the farmstead? ";
+                                            cout << "Are you sure that you want to enter the farmstead? The farmstead is a difficult area! (Y/N)" << "\n";
+                                            cin >> area_insurance;
+                                            if (area_insurance == "Y") {
+                                                cout << "You have entered the farmstead. " << "\n";
+                                                goto beta_test_thanks;
+                                            }
+                                            else if (area_insurance == "N") {
+                                                cout << "You have decided to not enter the farmstead. " << "\n";
+                                                goto beta_test_thanks;
+                                            }
+                                            else {
+                                                cout << "You have decided to not enter the farmstead. " << "\n";
+                                                goto beta_test_thanks;
+                                            }
                                         }
                                     
                                         beta_test_thanks:{
