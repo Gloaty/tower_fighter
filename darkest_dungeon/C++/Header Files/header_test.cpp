@@ -1,4 +1,4 @@
-#include <general_header.h>
+#include </home/gloaty/Desktop/Coding/tower_fighter/darkest_dungeon/C++/Header Files/gamma6-header.h>
 
 int main()
 {
