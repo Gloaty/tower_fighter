@@ -1,4 +1,4 @@
-#include <general_header.h>
+#include </home/gloaty/Desktop/Coding/tower_fighter/darkest_dungeon/C++/general_header.h>
 
 int main()
 {
@@ -13,7 +13,7 @@ int main()
     string standard_riches [7] = { "750 Gold", "500 Gold", "250 Gold", "Citrine", "Jade", "Onyx", "Minor Antique" };
     srand(time(NULL));
     int RanIndex = 0+ (rand() % 7);
-    cout << RanIndex;
+    std::cout << RanIndex;
     string inventory = standard_riches[RanIndex];
     
     // abnormal inventory check
@@ -67,33 +67,33 @@ int main()
         abnormal_inventory = inventory;
     }
 
-    cout << "\n" << "\n";
+    std::cout << "\n" << "\n";
 
     //inventory trackers
     generateEnemy();
-    cout << "\n";
-    cout << "--------------------------------";
-    cout << "\n" << "\n";
-    cout << "      INVENTORY TRACKERS";
-    cout << "\n" << "\n";
-    cout << "--------------------------------";
-    cout << "\n";
+    std::cout << "\n";
+    std::cout << "--------------------------------";
+    std::cout << "\n" << "\n";
+    std::cout << "      INVENTORY TRACKERS";
+    std::cout << "\n" << "\n";
+    std::cout << "--------------------------------";
+    std::cout << "\n";
     inventory = standard_riches[RanIndex];
-    cout << "Riches Chance: " << riches_random << "\n";
-    cout << "Abnormal Inventory: " << abnormal_inventory << "\n";
-    cout << "Inventory: " << inventory << "\n";
-    cout << "Gold: " << gold;
+    std::cout << "Riches Chance: " << riches_random << "\n";
+    std::cout << "Abnormal Inventory: " << abnormal_inventory << "\n";
+    std::cout << "Inventory: " << inventory << "\n";
+    std::cout << "Gold: " << gold;
 
     //enemy trackers
-    cout << "\n" << "\n";
-    cout << "--------------------------------";
-    cout << "\n" << "\n";
-    cout << "        ENEMY TRACKERS";
-    cout << "\n" << "\n";
-    cout << "--------------------------------";
-    cout << "\n";
-    cout << "Enemy: " << enemy;
-    cout << "\n" << "\n";
+    std::cout << "\n" << "\n";
+    std::cout << "--------------------------------";
+    std::cout << "\n" << "\n";
+    std::cout << "        ENEMY TRACKERS";
+    std::cout << "\n" << "\n";
+    std::cout << "--------------------------------";
+    std::cout << "\n";
+    std::cout << "Enemy: " << enemy;
+    std::cout << "\n" << "\n";
     
     // display current date and time
     auto start = std::chrono::system_clock::now();
@@ -103,7 +103,7 @@ int main()
     std::chrono::duration<double> elapsed_seconds = end-start;
     time_t end_time = std::chrono::system_clock::to_time_t(end);
 
-    cout << "Current Date and Time: " << std::ctime(&end_time);
+    std::cout << "Current Date and Time: " << std::ctime(&end_time);
 
     //starter heroes / monster - global variables
     string highwayman = "Dismas";
@@ -127,19 +127,19 @@ int main()
 
     // sleep random number
     srand(time(0));
-    cout << "Random number between -1 and 2. ";
-    cout << "Possible outcome are 0 and 1. ";
+    std::cout << "Random number between -1 and 2. ";
+    std::cout << "Possible outcome are 0 and 1. ";
     for(int x=0;x<3;x++) {
         int sleep_count = 0+ (rand() % 2);
-        cout << "\n";
-        cout << "sleep Output: " << sleep_count;
+        std::cout << "\n";
+        std::cout << "sleep Output: " << sleep_count;
         if (sleep_count == 0){
-          cout << "\n";
+          std::cout << "\n";
           sleep(3);
           goto intro;
         }
         else if (sleep_count == 1){
-          cout << "\n";
+          std::cout << "\n";
           sleep(4);
           goto intro;
         }
@@ -147,110 +147,110 @@ int main()
 
     // intro text
     intro:{
-        cout << "\n" << "\n";
-        cout << "Darkest Dungeon is about making the most of a bad situation. Quests will fail or must be abandoned. " << "\n";
-        cout << "Heroes will die. And when they die, they stay dead. Progress autosaves frequently, so actions are" << "\n";
-        cout << "permanent. This game expects a lot out of you. How far will you push your adventurers? How much are" << "\n";
-        cout << "you willing to risk in your quest to restore the hamlet? What will you sacrifice to save the life of" << "\n";
-        cout << "your favorite hero? Thankfully, there are always fresh souls arriving on the stage coach, seeking both" << "\n";
-        cout << "adventure and fame in the shadow of the..." << "\n";
+        std::cout << "\n" << "\n";
+        std::cout << "Darkest Dungeon is about making the most of a bad situation. Quests will fail or must be abandoned. " << "\n";
+        std::cout << "Heroes will die. And when they die, they stay dead. Progress autosaves frequently, so actions are" << "\n";
+        std::cout << "permanent. This game expects a lot out of you. How far will you push your adventurers? How much are" << "\n";
+        std::cout << "you willing to risk in your quest to restore the hamlet? What will you sacrifice to save the life of" << "\n";
+        std::cout << "your favorite hero? Thankfully, there are always fresh souls arriving on the stage coach, seeking both" << "\n";
+        std::cout << "adventure and fame in the shadow of the..." << "\n";
         sleep(2);
-        cout << "\n";
-        cout << "------------------------------------------------------------------------------------------------------";
-        cout << "\n";
-        cout << "\n";
-        cout << "                                     DARKEST DUNGEON" << "\n";
-        cout << "                             WARNING: INPUTS MUST BE UPPERCASE!" << "\n";
+        std::cout << "\n";
+        std::cout << "------------------------------------------------------------------------------------------------------";
+        std::cout << "\n";
+        std::cout << "\n";
+        std::cout << "                                     DARKEST DUNGEON" << "\n";
+        std::cout << "                             WARNING: INPUTS MUST BE UPPERCASE!" << "\n";
         char save;
-        cout << "                                  START SAVE FILE? (Y/N)";
-        cin >> save;
+        std::cout << "                                  START SAVE FILE? (Y/N)";
+        std::cin >> save;
         if (save == 'Y'){
-            cout << "\n";
+            std::cout << "\n";
             string hamlet_name;
-            cout << "                              INPUT HAMLET NAME IN UPPERCASE!" << "\n";
-            cout << "                                  HAMLET NAME: ";
-            cin >> hamlet_name;
-            cout << "\n";
-            cout << "                                   THE " << hamlet_name << " HAMLET";
-            cout << "\n";
+            std::cout << "                              INPUT HAMLET NAME IN UPPERCASE!" << "\n";
+            std::cout << "                                  HAMLET NAME: ";
+            std::cin >> hamlet_name;
+            std::cout << "\n";
+            std::cout << "                                   THE " << hamlet_name << " HAMLET";
+            std::cout << "\n";
             int break_counter = 0;
                 for(break_counter=0;break_counter<2;break_counter++) {
-                    cout << "                                     OPENING SAVE.";
+                    std::cout << "                                     OPENING SAVE.";
                     sleep(1);
-                    cout << "\n";
-                    cout << "\n";
-                    cout << "                                     -------------";
-                    cout << "\n";
-                    cout << "\n";
-                    cout << "                                     OPENING SAVE..";
+                    std::cout << "\n";
+                    std::cout << "\n";
+                    std::cout << "                                     -------------";
+                    std::cout << "\n";
+                    std::cout << "\n";
+                    std::cout << "                                     OPENING SAVE..";
                     sleep(1);
-                    cout << "\n";
-                    cout << "\n";
-                    cout << "                                     -------------";
-                    cout << "\n";
-                    cout << "\n";
-                    cout << "                                     OPENING SAVE...";
+                    std::cout << "\n";
+                    std::cout << "\n";
+                    std::cout << "                                     -------------";
+                    std::cout << "\n";
+                    std::cout << "\n";
+                    std::cout << "                                     OPENING SAVE...";
                     sleep(1);
-                    cout << "\n" << "\n";
-                    cout << "                                     -------------";
-                    cout << "\n" << "\n";
+                    std::cout << "\n" << "\n";
+                    std::cout << "                                     -------------";
+                    std::cout << "\n" << "\n";
                 }
-                cout << "\n" << "\n";
-                cout << "----------------------------------------------------------------------------------------------------------------------";
-                cout << "\n" << "\n";
-                cout << "Your journey starts on the old road, overrun by raiders, and many supernatural threats. Purge these fools, as a message" << "\n";
-                cout << "to their leaders that the rightful owner had returned, and their kind are no longer welcome. ";
-                cout << "\n" << "\n";
-                cout << "----------------------------------------------------------------------------------------------------------------------";
-                cout << "\n" << "\n";
+                std::cout << "\n" << "\n";
+                std::cout << "----------------------------------------------------------------------------------------------------------------------";
+                std::cout << "\n" << "\n";
+                std::cout << "Your journey starts on the old road, overrun by raiders, and many supernatural threats. Purge these fools, as a message" << "\n";
+                std::cout << "to their leaders that the rightful owner had returned, and their kind are no longer welcome. ";
+                std::cout << "\n" << "\n";
+                std::cout << "----------------------------------------------------------------------------------------------------------------------";
+                std::cout << "\n" << "\n";
                 int old_road_battle_won = 0;
                 char old_road1;
                 while(bool x = true) {
-                    cout << "Current Heroes: " << crusader << " (Crusader), " << highwayman << " (Highwayman)";
-                    cout << "You are currently in a room. The room is empty. All paths except the one to the right are blocked by foliage. " << "\n";
-                    cout << "Head to the right? (Y/N)";
-                    cin >> old_road1;
+                    std::cout << "Current Heroes: " << crusader << " (Crusader), " << highwayman << " (Highwayman)";
+                    std::cout << "You are currently in a room. The room is empty. All paths except the one to the right are blocked by foliage. " << "\n";
+                    std::cout << "Head to the right? (Y/N)";
+                    std::cin >> old_road1;
                     if(old_road1 == 'Y') {
                         sleep(1);
                         char old_road_tent;
-                        cout << "Reynauld and Dismas push forward, towards the hamlet. They discover an abandoned tent along the way. Investigate? (Y/N)";
-                        cin >> old_road_tent;
+                        std::cout << "Reynauld and Dismas push forward, towards the hamlet. They discover an abandoned tent along the way. Investigate? (Y/N)";
+                        std::cin >> old_road_tent;
                         if (old_road_tent == 'Y') {
-                            cout << "\n";
-                            cout << "--------------------------------------------------------------------------------------------";
-                            cout << "\n" << "\n";
-                            cout << highwayman << " reaches inside the tent and pulls out some riches. ";
+                            std::cout << "\n";
+                            std::cout << "--------------------------------------------------------------------------------------------";
+                            std::cout << "\n" << "\n";
+                            std::cout << highwayman << " reaches inside the tent and pulls out some riches. ";
                             sleep(1);
-                            cout << "\n" << "\n";
-                            cout << "--------------------------------------------------------------------------------------------";
-                            cout << "\n" << "\n";
-                            cout << "                                         RICHES";
-                            cout << "\n" << "\n";
-                            cout << "--------------------------------------------------------------------------------------------";
+                            std::cout << "\n" << "\n";
+                            std::cout << "--------------------------------------------------------------------------------------------";
+                            std::cout << "\n" << "\n";
+                            std::cout << "                                         RICHES";
+                            std::cout << "\n" << "\n";
+                            std::cout << "--------------------------------------------------------------------------------------------";
                             sleep(1);
-                            cout << "\n" << "\n";
+                            std::cout << "\n" << "\n";
                             if (abnormal_inventory != "None") {
                                 string old_road_fight;
-                                cout << "Inside is: ";
-                                cout << abnormal_inventory << "\n";
-                                cout << "Current Gold: " << gold;
-                                cout << "\n" << "\n";
-                                cout << "--------------------------------------------------------------------------------------------";
-                                cout << "\n" << "\n";
-                                cout << "After finding the " + inventory + ", Reynauld and Dismas reach the entrance to the next room. Enter? (Y/N)";
-                                cin >> old_road_fight;
+                                std::cout << "Inside is: ";
+                                std::cout << abnormal_inventory << "\n";
+                                std::cout << "Current Gold: " << gold;
+                                std::cout << "\n" << "\n";
+                                std::cout << "--------------------------------------------------------------------------------------------";
+                                std::cout << "\n" << "\n";
+                                std::cout << "After finding the " + inventory + ", Reynauld and Dismas reach the entrance to the next room. Enter? (Y/N)";
+                                std::cin >> old_road_fight;
                                 goto combat;
                             }
                             else if (abnormal_inventory == "None") {
                                 string old_road_fight;
-                                cout << "Inside is: ";
-                                cout << inventory << "\n";
-                                cout << "Current Gold: " << gold;
-                                cout << "\n" << "\n";
-                                cout << "--------------------------------------------------------------------------------------------";
-                                cout << "\n" << "\n";
-                                cout << "After finding the " + inventory + ", Reynauld and Dismas reach the entrance to the next room. Enter? (Y/N)";
-                                cin >> old_road_fight;
+                                std::cout << "Inside is: ";
+                                std::cout << inventory << "\n";
+                                std::cout << "Current Gold: " << gold;
+                                std::cout << "\n" << "\n";
+                                std::cout << "--------------------------------------------------------------------------------------------";
+                                std::cout << "\n" << "\n";
+                                std::cout << "After finding the " + inventory + ", Reynauld and Dismas reach the entrance to the next room. Enter? (Y/N)";
+                                std::cin >> old_road_fight;
                                 if (old_road_fight == "Y") {
                                     goto combat;
                                 }
@@ -259,16 +259,16 @@ int main()
                                 string monster_attacks [3] = {"Point Blank Shot", "Rain of Whips", "Shank"};
                                 
                                 //player turn
-                                cout << "Reynauld and Dismas enter the room, and find a chest in the middle. Dismas goes towards it, and are suddenly ambushed";
-                                cout << " by a the leader of the old road bandits!";
-                                cout << "\n";
-                                cout << "--------------------------------------------------------------------------------------------";
-                                cout << "\n" << "\n";
-                                cout << "                                         COMBAT";
-                                cout << "\n" << "\n";
-                                cout << "--------------------------------------------------------------------------------------------";
-                                cout << "\n";
-                                cout << "\n";
+                                std::cout << "Reynauld and Dismas enter the room, and find a chest in the middle. Dismas goes towards it, and are suddenly ambushed";
+                                std::cout << " by a the leader of the old road bandits!";
+                                std::cout << "\n";
+                                std::cout << "--------------------------------------------------------------------------------------------";
+                                std::cout << "\n" << "\n";
+                                std::cout << "                                         COMBAT";
+                                std::cout << "\n" << "\n";
+                                std::cout << "--------------------------------------------------------------------------------------------";
+                                std::cout << "\n";
+                                std::cout << "\n";
 
                                 // monster turn
                                 int monster_health = 35;
@@ -280,7 +280,7 @@ int main()
                                     int monster_attack_choice = 1+ (rand() % 2);
                                     monster_options = monster_attacks[monster_attack_RanIndex];
                                     //<temp>
-                                    cout << "Mon ATK Num: " << monster_attack_choice;
+                                    std::cout << "Mon ATK Num: " << monster_attack_choice;
                                     //</temp>
                                 int monster_crit_chance = '5';
                                 int monster_crit_random = 0+ (rand() % 101);
@@ -316,7 +316,7 @@ int main()
                                 }
                                 else if (monster_options == "Shank") {
                                     int random_target = 0+ (rand() % 3);
-                                    cout << "Random Target: " << random_target;
+                                    std::cout << "Random Target: " << random_target;
                                     if (random_target == 1) {
                                         place_1_hero = crusader;// standard gold
                                         place_1_hero_health = crusader_health;
@@ -348,22 +348,22 @@ int main()
                             }
                                     string crusader_options = "NULL";
                                     while (true) {
-                                        cout << "It is " + crusader + "'s turn. What does " + crusader + " do? Attack (A) Guard (G) ";
-                                        cin >> crusader_options;
+                                        std::cout << "It is " + crusader + "'s turn. What does " + crusader + " do? Attack (A) Guard (G) ";
+                                        std::cin >> crusader_options;
                                         if (crusader_options == "A") {
                                             int herodamage = 0+ (rand() % 11);
-                                            cout << "Hero Damage: " << herodamage << "\n";
+                                            std::cout << "Hero Damage: " << herodamage << "\n";
                                             
                                         reroll:{
                                             while (herodamage < 6) {
-                                                cout << "Hero Damage Reroll: OK" << "\n";
+                                                std::cout << "Hero Damage Reroll: OK" << "\n";
                                                 herodamage = 0+ (rand() % 11);
                                                 if (herodamage < 6) {
                                                     goto reroll;
                                                 }
                                             }
                                         }
-                                            cout << "Rerolled Hero Damage: " << herodamage;
+                                            std::cout << "Rerolled Hero Damage: " << herodamage;
                                             int crit_chance = 5;
                                             int crit_random = 0+ (rand() % 101);
                                             if (crit_random <= crit_chance) {
@@ -371,19 +371,19 @@ int main()
                                             }
                                             string battle_rewards;
                                             monster_health = monster_health - herodamage;
-                                            cout << "\n" << "\n";
-                                            cout << "--------------------------------------------------------------------------------------------";
-                                            cout << "\n" << "\n";
-                                            cout << "Monster Health: " << monster_health << "\n";
-                                            cout << "Crusader Health: " << place_1_hero_health;
-                                            cout << "\n" << "\n";
-                                            cout << "--------------------------------------------------------------------------------------------";
-                                            cout << "\n" << "\n";
+                                            std::cout << "\n" << "\n";
+                                            std::cout << "--------------------------------------------------------------------------------------------";
+                                            std::cout << "\n" << "\n";
+                                            std::cout << "Monster Health: " << monster_health << "\n";
+                                            std::cout << "Crusader Health: " << place_1_hero_health;
+                                            std::cout << "\n" << "\n";
+                                            std::cout << "--------------------------------------------------------------------------------------------";
+                                            std::cout << "\n" << "\n";
                                             if (monster_health <= 0) {
-                                                cout << "As the fiend falls, a faint hope blossoms. ";
-                                                cout << "Battle won!";
-                                                cout << "Rewards: " << battle_rewards;
-                                                cout << gold;
+                                                std::cout << "As the fiend falls, a faint hope blossoms. ";
+                                                std::cout << "Battle won!";
+                                                std::cout << "Rewards: " << battle_rewards;
+                                                std::cout << gold;
                                                 old_road_battle_won = 1;
                                                 goto accept_heroes;
                                             }
@@ -393,74 +393,74 @@ int main()
                                             int prot_damage_removal = monster_damage / prot;
                                             int monster_damage_guarded = place_1_hero_damage - prot_damage_removal;
                                             int place_1_hero_health = place_1_hero_health - monster_damage_guarded;
-                                            cout << "\n" << "\n";
-                                            cout << "--------------------------------------------------------------------------------------";
-                                            cout << "\n" << "\n";
-                                            cout << crusader << " raises a defensive stance in preparation for the monster's strike. ";
-                                            cout << "\n" << "\n";
-                                            cout << "--------------------------------------------------------------------------------------";
-                                            cout << "\n" << "\n";
+                                            std::cout << "\n" << "\n";
+                                            std::cout << "--------------------------------------------------------------------------------------";
+                                            std::cout << "\n" << "\n";
+                                            std::cout << crusader << " raises a defensive stance in preparation for the monster's strike. ";
+                                            std::cout << "\n" << "\n";
+                                            std::cout << "--------------------------------------------------------------------------------------";
+                                            std::cout << "\n" << "\n";
                                             if (monster_health <= 0) {
-                                                cout << "As the fiend falls, a faint hope blossoms. ";
-                                                cout << "Battle won!";
+                                                std::cout << "As the fiend falls, a faint hope blossoms. ";
+                                                std::cout << "Battle won!";
                                                 string battle_rewards = standard_riches[RanIndex];
-                                                cout << "Rewards: " << battle_rewards;
-                                                cout << gold;
+                                                std::cout << "Rewards: " << battle_rewards;
+                                                std::cout << gold;
                                                 old_road_battle_won = 1;
                                                 goto accept_heroes;
                                             }
                                         }
                                         string highwayman_options = "NULL";
-                                        cout << "It is " << highwayman << "'s turn. What does " << highwayman << " do? Attack (A) Guard (G) ";
-                                        cin >> highwayman_options;
-                                        cout << "\n";
-                                        cout << "--------------------------------------------------------------------------------------";
-                                        cout << "\n" << "\n";
+                                        std::cout << "It is " << highwayman << "'s turn. What does " << highwayman << " do? Attack (A) Guard (G) ";
+                                        std::cin >> highwayman_options;
+                                        std::cout << "\n";
+                                        std::cout << "--------------------------------------------------------------------------------------";
+                                        std::cout << "\n" << "\n";
                                         if (highwayman_options == "A") {
-                                            cout << highwayman << " has two weapons. Those weapons are a gun and a dagger. ";
+                                            std::cout << highwayman << " has two weapons. Those weapons are a gun and a dagger. ";
                                             if (highwayman_options == "G") {
-                                                cout << highwayman << " enters a defensive stance. ";
+                                                std::cout << highwayman << " enters a defensive stance. ";
                                                 int prot = 10;
                                                 int prot_damage_removal = monster_damage / prot;
                                                 int monster_damage_guarded = monster_damage - prot_damage_removal;
                                                 int place_2_hero_health = place_2_hero_health - monster_damage_guarded;
                                                 if (monster_health <= 0) {
-                                                    cout << "As the fiend falls, a faint hope blossoms. ";
-                                                    cout << "Battle won!";
+                                                    std::cout << "As the fiend falls, a faint hope blossoms. ";
+                                                    std::cout << "Battle won!";
                                                     string battle_rewards = standard_riches[RanIndex];
-                                                    cout << "Rewards: " << battle_rewards;
-                                                    cout << gold;
+                                                    std::cout << "Rewards: " << battle_rewards;
+                                                    std::cout << gold;
                                                     old_road_battle_won = 1;
                                                     goto accept_heroes;
                                                 }          
                                             }
                                             string highwayman_attack = "NULL";
-                                            cout << "Which does " << highwayman << " attack with? Gun (G) Dagger (D) ";
-                                            cin >> highwayman_attack;
+                                            std::cout << "Which does " << highwayman << " attack with? Gun (G) Dagger (D) ";
+                                            std::cin >> highwayman_attack;
                                             if (highwayman_attack == "G") {
-                                                cout << "------------------------------------------------";
-                                                cout << "\n" << "\n";
-                                                cout << "Knowledge: The gun fires four bullets that deal 1 - 3 damage per shot, but there is a catch" << "\n";
-                                                cout << "That catch is the fact that the gun will never critical hit. ";
+                                                std::cout << "------------------------------------------------";
+                                                std::cout << "\n" << "\n";
+                                                std::cout << "Knowledge: The gun fires four bullets that deal 1 - 3 damage per shot, but there is a catch" << "\n";
+                                                std::cout << "That catch is the fact that the gun will never critical hit. ";
                                                 int total_bullet_damage = 0;
                                                 sleep(2);
                                                 int i = 0;
                                                 for (int i; i > 4; i++) {
                                                     int bullet_damage = 0+ (rand() % 4);
-                                                    cout << "\n" << "\n";
-                                                    cout << "--------------------------------------------";
-                                                    cout << "Bullet Damage: " << bullet_damage;
+                                                    std::cout << "\n" << "\n";
+                                                    std::cout << "--------------------------------------------";
+                                                    std::cout << "Bullet Damage: " << bullet_damage;
                                                     total_bullet_damage += bullet_damage;
                                                     monster_health -= bullet_damage;
-                                                    cout << "Monster Health: " << monster_health;
-                                                    cout << "--------------------------------------------";
-                                                    cout << "\n" << "\n";
+                                                    std::cout << "Monster Health: " << monster_health;
+                                                    std::cout << "--------------------------------------------";
+                                                    std::cout << "\n" << "\n";
                                                     if (monster_health <= 0) {
-                                                        cout << "As the fiend falls, a faint hope blossoms. ";
-                                                        cout << "Battle won!";
+                                                        std::cout << "As the fiend falls, a faint hope blossoms. ";
+                                                        std::cout << "Battle won!";
                                                         string battle_rewards = standard_riches[RanIndex];
-                                                        cout << "Rewards: " << battle_rewards;
-                                                        cout << gold;
+                                                        std::cout << "Rewards: " << battle_rewards;
+                                                        std::cout << gold;
                                                         old_road_battle_won = 1;
                                                         goto accept_heroes;
                                                     }
@@ -475,20 +475,20 @@ int main()
                                                     herodamage = 8;
                                                 }
                                                 monster_health = monster_health - herodamage;
-                                                cout << "\n" << "\n";
-                                                cout << "--------------------------------------------";
-                                                cout << "\n" << "\n";
-                                                cout << "Dagger Damage: " << herodamage;
-                                                cout << "Monster Health: " << monster_health;
-                                                cout << "\n" << "\n";
-                                                cout << "--------------------------------------------";
-                                                cout << "\n" << "\n";
+                                                std::cout << "\n" << "\n";
+                                                std::cout << "--------------------------------------------";
+                                                std::cout << "\n" << "\n";
+                                                std::cout << "Dagger Damage: " << herodamage;
+                                                std::cout << "Monster Health: " << monster_health;
+                                                std::cout << "\n" << "\n";
+                                                std::cout << "--------------------------------------------";
+                                                std::cout << "\n" << "\n";
                                                 if (monster_health <= 0) {
-                                                        cout << "As the fiend falls, a faint hope blossoms. ";
-                                                        cout << "Battle won!";
+                                                        std::cout << "As the fiend falls, a faint hope blossoms. ";
+                                                        std::cout << "Battle won!";
                                                         string battle_rewards = standard_riches[RanIndex];
-                                                        cout << "Rewards: " << battle_rewards;
-                                                        cout << gold;
+                                                        std::cout << "Rewards: " << battle_rewards;
+                                                        std::cout << gold;
                                                         old_road_battle_won = 1;
                                                         goto accept_heroes;
                                                     }
@@ -496,52 +496,52 @@ int main()
                                         }
                                     //monster: deal Damage 
                                     sleep(1);
-                                    cout << "The monster takes a swing to rend the flesh!";
+                                    std::cout << "The monster takes a swing to rend the flesh!";
                                     sleep(1);
-                                    cout << "\n" << "\n";
-                                    cout << "--------------------------------------------";
-                                    cout << "\n";
+                                    std::cout << "\n" << "\n";
+                                    std::cout << "--------------------------------------------";
+                                    std::cout << "\n";
                                     if (monster_options == "Shank") {
-                                        cout << "Monster Attack: Shank";
+                                        std::cout << "Monster Attack: Shank";
                                         sleep(1);
-                                        cout << "Shank is an attack that can hit any member in your party at random. ";
-                                        cout << "This move typically has a mid-range damage output. ";
-                                        cout << "\n";
-                                        cout << "------------------------------------------------------";
+                                        std::cout << "Shank is an attack that can hit any member in your party at random. ";
+                                        std::cout << "This move typically has a mid-range damage output. ";
+                                        std::cout << "\n";
+                                        std::cout << "------------------------------------------------------";
                                       }
                                       else if (monster_options == "Point Blank Shot") {
-                                        cout << "Monster Attack: Point Blank Shot";
+                                        std::cout << "Monster Attack: Point Blank Shot";
                                         sleep(1);
-                                        cout << "Point Blank Shot can only hit the hero in the first position in the party, ";
-                                        cout << "and typically deals mid-range damage. ";
-                                        cout << "\n";
-                                        cout << "------------------------------------------------------";
+                                        std::cout << "Point Blank Shot can only hit the hero in the first position in the party, ";
+                                        std::cout << "and typically deals mid-range damage. ";
+                                        std::cout << "\n";
+                                        std::cout << "------------------------------------------------------";
                                       }
                                       else if (monster_options == "Rain of Whips") {
-                                        cout << "Monster Attack: Rain of Whips";
+                                        std::cout << "Monster Attack: Rain of Whips";
                                         sleep(1);
-                                        cout << "Rain of Whips hits all party members, but the cost of that is";
-                                        cout << "a low damage output per party member. ";
-                                        cout << "\n";
-                                        cout << "------------------------------------------------------";     }
+                                        std::cout << "Rain of Whips hits all party members, but the cost of that is";
+                                        std::cout << "a low damage output per party member. ";
+                                        std::cout << "\n";
+                                        std::cout << "------------------------------------------------------";     }
                                     sleep(1);
                                     place_1_hero_health -= place_1_hero_damage;
                                     place_2_hero_health -= place_2_hero_damage;
                                     sleep(1);
-                                    cout << "\n";
-                                    cout << "Monster Attack: " << monster_options;
-                                    cout << "Monster Damage: " << monster_damage;
-                                    cout << "Damage Dealt to " << crusader << ": " << place_1_hero_damage << "\n";
-                                    cout << "Damage Dealt to " << highwayman << ": " << place_2_hero_damage;
-                                    cout << "\n" << "\n";
-                                    cout << "---------------------------------------------------------------";
-                                    cout << "\n" << "\n";
+                                    std::cout << "\n";
+                                    std::cout << "Monster Attack: " << monster_options;
+                                    std::cout << "Monster Damage: " << monster_damage;
+                                    std::cout << "Damage Dealt to " << crusader << ": " << place_1_hero_damage << "\n";
+                                    std::cout << "Damage Dealt to " << highwayman << ": " << place_2_hero_damage;
+                                    std::cout << "\n" << "\n";
+                                    std::cout << "---------------------------------------------------------------";
+                                    std::cout << "\n" << "\n";
                                     sleep(1);
-                                    cout << "Health of " << crusader << ": " << place_1_hero_health << "\n";
-                                    cout << "Health of " << highwayman << ": " << place_2_hero_health << "\n";
-                                    cout << "\n";
-                                    cout << "----------------------------------------------------------";
-                                    cout << "\n";
+                                    std::cout << "Health of " << crusader << ": " << place_1_hero_health << "\n";
+                                    std::cout << "Health of " << highwayman << ": " << place_2_hero_health << "\n";
+                                    std::cout << "\n";
+                                    std::cout << "----------------------------------------------------------";
+                                    std::cout << "\n";
                                 }
                             }
                             accept_heroes:{
@@ -556,20 +556,20 @@ int main()
                                 string stagecoach_hero_choice;
                                 string plague_doctor;
                                 string vestal;
-                                cout << "As the monster falls to the ground, defeated, our heroes breathe a sigh of relief, and continue their pilgrimage to the hamlet. " << "\n";
-                                cout << "Onc our heroes arrive, they find a town, old and forgotten. However, though, it shall prove its worth to our heroes, since it can ";
-                                cout << "still provide warmth and respite from the chill of battle. ";
-                                cout << "\n";
-                                cout << "---------------------------------------------------------------------------------";
-                                cout << "\n";
-                                cout << "The hamlet has a few buildings in it, but most of them are still under construction, awaiting your approval. " << "\n";
-                                cout << "The stagecoach is operational,  pace where fesh souls arrive to the hamlet, seeking fame and fotune. " << "\n";
+                                std::cout << "As the monster falls to the ground, defeated, our heroes breathe a sigh of relief, and continue their pilgrimage to the hamlet. " << "\n";
+                                std::cout << "Onc our heroes arrive, they find a town, old and forgotten. However, though, it shall prove its worth to our heroes, since it can ";
+                                std::cout << "still provide warmth and respite from the chill of battle. ";
+                                std::cout << "\n";
+                                std::cout << "---------------------------------------------------------------------------------";
+                                std::cout << "\n";
+                                std::cout << "The hamlet has a few buildings in it, but most of them are still under construction, awaiting your approval. " << "\n";
+                                std::cout << "The stagecoach is operational,  pace where fesh souls arrive to the hamlet, seeking fame and fotune. " << "\n";
                                 if (tutorial_skip_warning == "Y") {
                                     place_1_hero = "None";
                                     place_2_hero = "None";            
                                     place_3_hero = "None";
                                     place_4_hero = "None";
-                                    cout << "The stagecoach has 4 poor souls on it awaiting your call to action. ";
+                                    std::cout << "The stagecoach has 4 poor souls on it awaiting your call to action. ";
                                     stagecoach_hero_1 = "Crusader";
                                     stagecoach_hero_2 = "Highwayman";
                                     stagecoach_hero_3 = "Plague Doctor";
@@ -580,14 +580,14 @@ int main()
                                     stagecoach_hero_2 = "Vestal";
                                     stagecoach_hero_3 = "None";
                                     stagecoach_hero_4 = "None";
-                                    cout << "The stagecoach has 2 poor soouls on it awaiting your call to action. " << "\n";
-                                    cout << "The first hero is a " << stagecoach_hero_1 << "\n";
-                                    cout << "The second hero is a " << stagecoach_hero_2 << "\n";
-                                    cout << "P = Plague Doctor" << "\n";
-                                    cout << "V = Vestal" << "\n";
-                                    cout << "B = Both" << "\n";
-                                    cout << "Whih hero(es) do you take? (P/V/B)" << "\n";
-                                    cin >> stagecoach_hero_choice;
+                                    std::cout << "The stagecoach has 2 poor soouls on it awaiting your call to action. " << "\n";
+                                    std::cout << "The first hero is a " << stagecoach_hero_1 << "\n";
+                                    std::cout << "The second hero is a " << stagecoach_hero_2 << "\n";
+                                    std::cout << "P = Plague Doctor" << "\n";
+                                    std::cout << "V = Vestal" << "\n";
+                                    std::cout << "B = Both" << "\n";
+                                    std::cout << "Whih hero(es) do you take? (P/V/B)" << "\n";
+                                    std::cin >> stagecoach_hero_choice;
                                     if (stagecoach_hero_choice == "P") {
                                         standby_hero_1 == "P";
                                         plague_doctor = "Paracelcus";
@@ -609,28 +609,28 @@ int main()
                                 string assign_hero = "NULL";
                                 string plague_doctor_abilities [3] = {"Knife", "Blighted Throw", "Buff"};
                                 string vestal_abilities [3] = {"Mace Swing", "Strike of the Gods", "Holy Heal"};
-                                cout << "Assigning heroes is permanent, so be ";
-                                cout << "confident in your choices before you make them. " << "\n";
-                                cout << "Would you like to assign these heroes? (Y/N)" << "\n";
-                                cout << "If you do respond with 'N', the heroes will be auto asigned to default positions. " << "\n";
-                                cin >> assign_choice;
+                                std::cout << "Assigning heroes is permanent, so be ";
+                                std::cout << "confident in your choices before you make them. " << "\n";
+                                std::cout << "Would you like to assign these heroes? (Y/N)" << "\n";
+                                std::cout << "If you do respond with 'N', the heroes will be auto asigned to default positions. " << "\n";
+                                std::cin >> assign_choice;
                                 if (assign_choice == "Y") {
-                                    cout << "Lineup Formation: " << "\n" << "\n";
-                                    cout << "First: " << place_1_hero << "\n";
-                                    cout << "Second: " << place_2_hero << "\n";
-                                    cout << "Third: " << place_3_hero << "\n";
-                                    cout << "Fourth: " << place_4_hero << "\n" << "\n";
-                                    cout << "Which place would you like to assign a hero to? (1/2/3/4)";
-                                    cin >> assign_place;
+                                    std::cout << "Lineup Formation: " << "\n" << "\n";
+                                    std::cout << "First: " << place_1_hero << "\n";
+                                    std::cout << "Second: " << place_2_hero << "\n";
+                                    std::cout << "Third: " << place_3_hero << "\n";
+                                    std::cout << "Fourth: " << place_4_hero << "\n" << "\n";
+                                    std::cout << "Which place would you like to assign a hero to? (1/2/3/4)";
+                                    std::cin >> assign_place;
                                     if (assign_place == 1) {
-                                        cout << "Who would you like to assign to place 1? " << "\n";
-                                        cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
-                                        cout << "Which hero do you want fill place 1?" << "\n";
-                                        cout << "C = Crusader" << "\n";
-                                        cout << "H = Highwayman" << "\n";
-                                        cout << "P = Plague Doctor" << "\n";
-                                        cout << "V = Vestal" << "\n";
-                                        cin >> assign_hero;
+                                        std::cout << "Who would you like to assign to place 1? " << "\n";
+                                        std::cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
+                                        std::cout << "Which hero do you want fill place 1?" << "\n";
+                                        std::cout << "C = Crusader" << "\n";
+                                        std::cout << "H = Highwayman" << "\n";
+                                        std::cout << "P = Plague Doctor" << "\n";
+                                        std::cout << "V = Vestal" << "\n";
+                                        std::cin >> assign_hero;
                                         if (place_1_hero == "None") {
                                             if (assign_hero == standby_hero_1) {
                                                 place_1_hero = assign_hero;
@@ -642,25 +642,25 @@ int main()
                                             }
                                             else if (assign_hero != standby_hero_1) {
                                                 if (assign_hero != standby_hero_2) {
-                                                    cout << "Hero is not available! " << "\n";
+                                                    std::cout << "Hero is not available! " << "\n";
                                                     goto hero_assign;
                                                 }
                                             }
                                         }
                                         else if (place_1_hero != "None") {
-                                            cout << "A hero is already assigned to this space!" << "\n";
+                                            std::cout << "A hero is already assigned to this space!" << "\n";
                                             goto hero_assign;
                                         }
                                     }
                                     else if (assign_place == 2) {
-                                        cout << "Who would you like to assign to place 2? " << "\n";
-                                        cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
-                                        cout << "Which hero do you want fill place 2?" << "\n";
-                                        cout << "C = Crusader" << "\n";   
-                                        cout << "H = Highwayman" << "\n";
-                                        cout << "P = Plague Doctor" << "\n";   
-                                        cout << "V = Vestal" << "\n";
-                                        cin >> assign_hero;
+                                        std::cout << "Who would you like to assign to place 2? " << "\n";
+                                        std::cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
+                                        std::cout << "Which hero do you want fill place 2?" << "\n";
+                                        std::cout << "C = Crusader" << "\n";   
+                                        std::cout << "H = Highwayman" << "\n";
+                                        std::cout << "P = Plague Doctor" << "\n";   
+                                        std::cout << "V = Vestal" << "\n";
+                                        std::cin >> assign_hero;
                                         if(place_2_hero == "None") {
                                             if (assign_hero == standby_hero_1) {
                                                 place_2_hero = assign_hero;
@@ -672,50 +672,50 @@ int main()
                                             }
                                             else if (assign_hero != standby_hero_1) {
                                                 if (assign_hero != standby_hero_2) {
-                                                    cout << "Hero is not available! " << "\n";
+                                                    std::cout << "Hero is not available! " << "\n";
                                                     goto hero_assign;
                                                 }
                                             }
                                         }
                                         else if (place_2_hero != "None") {
-                                            cout << "A hero is already assigned to this place! " << "\n";
+                                            std::cout << "A hero is already assigned to this place! " << "\n";
                                             goto hero_assign;
                                         }                              
                                     }
                                     else if (assign_place == 3)
-                                        cout << "Who would you like to assign to place 3? " << "\n";
-                                        cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
-                                        cout << "Which hero do you want fill place 3?" << "\n";
-                                        cout << "C = Crusader" << "\n"; 
-                                        cout << "H = Highwayman" << "\n";  
-                                        cout << "P = Plague Doctor" << "\n";
-                                        cout << "V = Vestal" << "\n";   
-                                        cin >> assign_hero;
+                                        std::cout << "Who would you like to assign to place 3? " << "\n";
+                                        std::cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
+                                        std::cout << "Which hero do you want fill place 3?" << "\n";
+                                        std::cout << "C = Crusader" << "\n"; 
+                                        std::cout << "H = Highwayman" << "\n";  
+                                        std::cout << "P = Plague Doctor" << "\n";
+                                        std::cout << "V = Vestal" << "\n";   
+                                        std::cin >> assign_hero;
                                         if(place_3_hero == "None") {
                                             if (assign_hero == standby_hero_1) {
                                                 place_3_hero = assign_hero;
                                             }
                                             else if (assign_hero != standby_hero_1) {
                                                 if (assign_hero != standby_hero_2) {
-                                                    cout << "Hero is not available! " << "\n";
+                                                    std::cout << "Hero is not available! " << "\n";
                                                     goto hero_assign;
                                                 }
                                             }
                                         }
                                         else if (place_3_hero != "None") {
-                                            cout << "A hero is already assigned to this place! " << "\n";
+                                            std::cout << "A hero is already assigned to this place! " << "\n";
                                             goto hero_assign;
                                         }
                                     }
                                     else if (assign_place == 4) {
-                                        cout << "Who would you like to assign to place 3? " << "\n";
-                                        cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
-                                        cout << "Which hero do you want fill place 3?" << "\n";
-                                        cout << "C = Crusader" << "\n"; 
-                                        cout << "H = Highwayman" << "\n";  
-                                        cout << "P = Plague Doctor" << "\n";
-                                        cout << "V = Vestal" << "\n";  
-                                        cin >> assign_hero;
+                                        std::cout << "Who would you like to assign to place 3? " << "\n";
+                                        std::cout << "Available Heroes: " << standby_hero_1 << " : " << standby_hero_2;
+                                        std::cout << "Which hero do you want fill place 3?" << "\n";
+                                        std::cout << "C = Crusader" << "\n"; 
+                                        std::cout << "H = Highwayman" << "\n";  
+                                        std::cout << "P = Plague Doctor" << "\n";
+                                        std::cout << "V = Vestal" << "\n";  
+                                        std::cin >> assign_hero;
                                         if(place_4_hero == "None") {
                                             if(assign_hero == standby_hero_1) {
                                                 place_4_hero = assign_hero;
@@ -727,18 +727,18 @@ int main()
                                             }
                                             else if(assign_hero != standby_hero_1) {
                                                 if (assign_hero != standby_hero_2) {
-                                                    cout << "Hero is no available! " << "\n";
+                                                    std::cout << "Hero is no available! " << "\n";
                                                     goto hero_assign;
                                                 } 
                                             }
                                         }
                                         else if (place_4_hero != "None") {
-                                            cout << "A hero is already assigned to this place! " << "\n";
+                                            std::cout << "A hero is already assigned to this place! " << "\n";
                                             goto hero_assign;
                                         }
                                     }
                                     else if (assign_choice != "N") {
-                                        cout << "Autoassigning heroes..." << "\n";
+                                        std::cout << "Autoassigning heroes..." << "\n";
                                         sleep(2);
                                         place_1_hero = "Crusader";
                                         place_2_hero = "Highwayman";
@@ -752,38 +752,38 @@ int main()
                                     string pause_choice;
                                     string accept_mission;
                                     string area_choice;
-                                    cout << "Since the heroes have been assigned,it is now " << "\n";
-                                    cout << "in your best interest to go out on a mission. Do you wish to head out? (Y/N)" << "\n";
-                                    cin >> accept_mission;
+                                    std::cout << "Since the heroes have been assigned,it is now " << "\n";
+                                    std::cout << "in your best interest to go out on a mission. Do you wish to head out? (Y/N)" << "\n";
+                                    std::cin >> accept_mission;
                                     if (accept_mission == "Y") {
-                                        cout << "Your bravery is noted! There are 6 regions for your heroes to explore, and perish in. " << "\n";
-                                        cout << "There is the Weald, Ruins, Farmstead, Darkest Dungeon, Cove, and the Warrens. " << "\n";
-                                        cout << "Ruins = R" << "\n";
-                                        cout << "Weald = WE" << "\n";
-                                        cout << "Cove = C" << "\n";
-                                        cout << "Darkest Dungeon = DD" << "\n";
-                                        cout << "Farmstead = F" << "\n";
-                                        cout << "Where do you wish to go adventuring? (R/WE/WA/C/DD/F)" << "\n";
-                                        cout << "WARNING: At the time, only the ruins are functional. " << "\n";
-                                        cin >> area_choice;
+                                        std::cout << "Your bravery is noted! There are 6 regions for your heroes to explore, and perish in. " << "\n";
+                                        std::cout << "There is the Weald, Ruins, Farmstead, Darkest Dungeon, Cove, and the Warrens. " << "\n";
+                                        std::cout << "Ruins = R" << "\n";
+                                        std::cout << "Weald = WE" << "\n";
+                                        std::cout << "Cove = C" << "\n";
+                                        std::cout << "Darkest Dungeon = DD" << "\n";
+                                        std::cout << "Farmstead = F" << "\n";
+                                        std::cout << "Where do you wish to go adventuring? (R/WE/WA/C/DD/F)" << "\n";
+                                        std::cout << "WARNING: At the time, only the ruins are functional. " << "\n";
+                                        std::cin >> area_choice;
                                         if (area_choice == "R") {
-                                            cout << "Selected Area: Ruins..." << "\n";
+                                            std::cout << "Selected Area: Ruins..." << "\n";
                                             goto beta_test_thanks;
                                         }
                                         else if (area_choice == "F") {
-                                            cout << "Selected Area: Farmstead..." << "\n";
-                                            cout << "Are you sure that you want to enter the farmstead? The farmstead is a difficult area! (Y/N)" << "\n";
-                                            cin >> area_insurance;
+                                            std::cout << "Selected Area: Farmstead..." << "\n";
+                                            std::cout << "Are you sure that you want to enter the farmstead? The farmstead is a difficult area! (Y/N)" << "\n";
+                                            std::cin >> area_insurance;
                                             if (area_insurance == "Y") {
-                                                cout << "You have entered the farmstead. " << "\n";
+                                                std::cout << "You have entered the farmstead. " << "\n";
                                                 goto farmstead;
                                             }
                                             else if (area_insurance == "N") {
-                                                cout << "You have decided to not enter the farmstead. " << "\n";
+                                                std::cout << "You have decided to not enter the farmstead. " << "\n";
                                                 goto beta_test_thanks;
                                             }
                                             else {
-                                                cout << "You have decided to not enter the farmstead. " << "\n";
+                                                std::cout << "You have decided to not enter the farmstead. " << "\n";
                                                 goto beta_test_thanks;
                                             }
                                         }
@@ -791,79 +791,79 @@ int main()
                                         //farmstead gameplay
                                         farmstead:{
                                             string farmstead_enter;
-                                            cout << "Inside the farmstead, torches are not required, as the ";
-                                            cout << "meteor that recently struck the farmstead released an astral light. " << "\n";
-                                            cout << "In the tutorial, you skipped the lesson on the torch. The torch is now included. " << "\n";
-                                            cout << "The torch is like a difficulty scale, the darker it is, the more difficult the area is. " << "\n";
-                                            cout << "You can use items to light the torch, but you can't use the torch to light items. " << "\n";
-                                            cout << "Normally, the torch starts at 100, and goes down as you explore the area. " << "\n";
-                                            cout << "The torch may reach 0, and the enemies will be more difficult to defeat. " << "\n";
-                                            cout << "However, the torch will not go down if you are in the same area as the meteor. " << "\n";
-                                            cout << "\n" << "\n";
-                                            cout << "--------------------------------------------------------------------------------------------------------------------" << "\n" << "\n";
-                                            cout << "Do you enter the astral light? (Y/N)" << "\n";
-                                            cin >> farmstead_enter;
+                                            std::cout << "Inside the farmstead, torches are not required, as the ";
+                                            std::cout << "meteor that recently struck the farmstead released an astral light. " << "\n";
+                                            std::cout << "In the tutorial, you skipped the lesson on the torch. The torch is now included. " << "\n";
+                                            std::cout << "The torch is like a difficulty scale, the darker it is, the more difficult the area is. " << "\n";
+                                            std::cout << "You can use items to light the torch, but you can't use the torch to light items. " << "\n";
+                                            std::cout << "Normally, the torch starts at 100, and goes down as you explore the area. " << "\n";
+                                            std::cout << "The torch may reach 0, and the enemies will be more difficult to defeat. " << "\n";
+                                            std::cout << "However, the torch will not go down if you are in the same area as the meteor. " << "\n";
+                                            std::cout << "\n" << "\n";
+                                            std::cout << "--------------------------------------------------------------------------------------------------------------------" << "\n" << "\n";
+                                            std::cout << "Do you enter the astral light? (Y/N)" << "\n";
+                                            std::cin >> farmstead_enter;
                                             if (farmstead_enter == "Y") {
-                                                cout << "You enter the farmstead's astral light, and prepare to fight for your life. " << "\n";
-                                                cout << "The way the farmstead works is known as 'Eternal Harvest'. " << "\n";
-                                                cout << "The combat will never end, and you will have to fight for your life. " << "\n";
-                                                cout << "You can retreat at any time without a penalty. " << "\n";
-                                                cout << "May the harvest never end! " << "\n";
+                                                std::cout << "You enter the farmstead's astral light, and prepare to fight for your life. " << "\n";
+                                                std::cout << "The way the farmstead works is known as 'Eternal Harvest'. " << "\n";
+                                                std::cout << "The combat will never end, and you will have to fight for your life. " << "\n";
+                                                std::cout << "You can retreat at any time without a penalty. " << "\n";
+                                                std::cout << "May the harvest never end! " << "\n";
                                                 bool eternal_harvest = true;
                                                 while (eternal_harvest == true) {
                                                     string farmstead_choice;
-                                                    cout << "The combat begins! " << "\n";
+                                                    std::cout << "The combat begins! " << "\n";
                                                     farmstead_combat:{
                                                         generateEnemy();
-                                                        cout << "A terrible " << enemy << " awakens from the astral light. " << "\n";
-                                                        cout << "What do you do? You may Retreat, Attack or Defend. (R/A/D)" << "\n";
-                                                        cin >> farmstead_choice;
+                                                        std::cout << "A terrible " << enemy << " awakens from the astral light. " << "\n";
+                                                        std::cout << "What do you do? You may Retreat, Attack or Defend. (R/A/D)" << "\n";
+                                                        std::cin >> farmstead_choice;
                                                         if (farmstead_choice == "R") {
                                                             string farmstead_retreat;
-                                                            cout << "Are you confident that you wish to retreat? (Y/N)" << "\n";
-                                                            cin >> farmstead_retreat;
+                                                            std::cout << "Are you confident that you wish to retreat? (Y/N)" << "\n";
+                                                            std::cin >> farmstead_retreat;
                                                             if (farmstead_retreat == "Y") {
                                                                 string retreat_aftermath;
-                                                                cout << "You have retreated from battle, and are now safe. " << "\n";
-                                                                cout << "Do you wish to return to the hamlet, re-enter the battle, or rest for a bit? (H/B/R)" << "\n";
-                                                                cout << "H = Return to the hamlet, B = Re-enter the battle. " << "\n";
-                                                                cin >> retreat_aftermath;
+                                                                std::cout << "You have retreated from battle, and are now safe. " << "\n";
+                                                                std::cout << "Do you wish to return to the hamlet, re-enter the battle, or rest for a bit? (H/B/R)" << "\n";
+                                                                std::cout << "H = Return to the hamlet, B = Re-enter the battle. " << "\n";
+                                                                std::cin >> retreat_aftermath;
                                                                 if (retreat_aftermath == "H") {
-                                                                    cout << "You have returned to the hamlet. " << "\n";
+                                                                    std::cout << "You have returned to the hamlet. " << "\n";
                                                                     goto farmstead_end;
                                                                 }
                                                                 else if (retreat_aftermath == "B") {
-                                                                    cout << "You have re-entered the battle. " << "\n";
+                                                                    std::cout << "You have re-entered the battle. " << "\n";
                                                                     goto farmstead_combat;
                                                                 }
                                                                 else if (retreat_aftermath == "R") {
                                                                     string farmstead_rest;
-                                                                    cout << "You have chosen to take a small rest. " << "\n";
-                                                                    cout << "You may go to sleep, which will allow you to regain some health, but you may be ambushed in the night. " << "\n";
-                                                                    cout << "Or, you can continue adventuring. " << "\n";
-                                                                    cout << "Do you wish to go to sleep or continue adventuring? (S/C)" << "\n";
-                                                                    cin >> farmstead_rest;
+                                                                    std::cout << "You have chosen to take a small rest. " << "\n";
+                                                                    std::cout << "You may go to sleep, which will allow you to regain some health, but you may be ambushed in the night. " << "\n";
+                                                                    std::cout << "Or, you can continue adventuring. " << "\n";
+                                                                    std::cout << "Do you wish to go to sleep or continue adventuring? (S/C)" << "\n";
+                                                                    std::cin >> farmstead_rest;
                                                                     if (farmstead_rest == "S") {
-                                                                        cout << "You have chosen to go to sleep. " << "\n";
+                                                                        std::cout << "You have chosen to go to sleep. " << "\n";
                                                                         int ambush_chance = rand() % 100 + 1;
                                                                         if (ambush_chance <= 30) {
-                                                                            cout << "You have been ambushed by a group of enemies! " << "\n";
-                                                                            cout << "Combat is beginning now! " << "\n";
+                                                                            std::cout << "You have been ambushed by a group of enemies! " << "\n";
+                                                                            std::cout << "Combat is beginning now! " << "\n";
                                                                             goto farmstead_combat;
                                                                         }
                                                                     }
                                                                 }
                                                                 else {
-                                                                    cout << "You have re-entered the battle. " << "\n";
+                                                                    std::cout << "You have re-entered the battle. " << "\n";
                                                                     goto farmstead_combat;
                                                                 }
                                                             }
                                                             else if (farmstead_retreat == "N") {
-                                                                cout << "You have decided to not retreat. " << "\n";
+                                                                std::cout << "You have decided to not retreat. " << "\n";
                                                                 goto farmstead_combat;
                                                             }
                                                             else {
-                                                                cout << "You have decided to not retreat. " << "\n";
+                                                                std::cout << "You have decided to not retreat. " << "\n";
                                                                 goto farmstead_combat;
                                                             }
                                                         // add the other battle options instead of this
@@ -872,34 +872,34 @@ int main()
                                                 }
                                             }
                                             farmstead_end:{
-                                                cout << "You have returned to the hamlet. " << "\n";
+                                                std::cout << "You have returned to the hamlet. " << "\n";
                                                 goto beta_test_thanks;
                                             }
                                         }
                                         beta_test_thanks:{
-                                            cout << "Thanks for Beta Testing. We seriously appreciate";
-                                            cout << " you supporting the development of this small passion project. ";
-                                            cout << "We will keep you updated for the future. Have a great day! ";
-                                            cout << "Closing Game...";
-                                            cout << "You may now close the program. ";
+                                            std::cout << "Thanks for Beta Testing. We seriously appreciate";
+                                            std::cout << " you supporting the development of this small passion project. ";
+                                            std::cout << "We will keep you updated for the future. Have a great day! ";
+                                            std::cout << "Closing Game...";
+                                            std::cout << "You may now close the program. ";
                                             goto exit;
                                         }//remove after testing
         string astral_spawn[5] = { "Eternal Labourer", "Astral Horse", "Millmaster", "Scarecrow", "Foreman" };
         string enemy = astral_spawn[farmstead_enemy_RanIndex];
-        cout << "Enemy: " << enemy;
+        std::cout << "Enemy: " << enemy;
         //removal end
                                     }
                                     else if (accept_mission != "Y") {
-                                        cout << "PAUSE MENU";
-                                        cout << "Enter 'R' to resume. ";
-                                        cout << "Enter 'Q' to quit. ";
-                                        cin >> pause_choice;
+                                        std::cout << "PAUSE MENU";
+                                        std::cout << "Enter 'R' to resume. ";
+                                        std::cout << "Enter 'Q' to quit. ";
+                                        std::cin >> pause_choice;
                                         if (pause_choice != "Q") {
-                                            cout << "Restarting from Mission Choice menu... ";
+                                            std::cout << "Restarting from Mission Choice menu... ";
                                             goto mission_choice;
                                         }
                                         else if (pause_choice == "Q") {
-                                            cout << "Closing Game... ";
+                                            std::cout << "Closing Game... ";
                                             abort();
                                         }
                                     }
@@ -907,29 +907,29 @@ int main()
                             }
                         }
                         if (old_road_tent == 'N') {
-                            cout << "Wary of what may be inside, Reynauld and Dismas ignore the tent. ";
-                            cout << "Unsure of what to do next, our heroes return to the original room, to await instructions. ";
+                            std::cout << "Wary of what may be inside, Reynauld and Dismas ignore the tent. ";
+                            std::cout << "Unsure of what to do next, our heroes return to the original room, to await instructions. ";
                             continue;
                         }
                     }
                     else if(old_road1 == 'N') {
                         char tutorial_skip_warning;
-                        cout << "\n";
-                        cout << "-------------------------------------------------------------------------------------------";
-                        cout << "\n" << "\n";
-                        cout << "WARNING! THIS WILL SKIP THE TUTORIAL. ARE YOU SURE? WE DO NOT RECOMMEND THIS! (Y/N)";
-                        cin >> tutorial_skip_warning;
+                        std::cout << "\n";
+                        std::cout << "-------------------------------------------------------------------------------------------";
+                        std::cout << "\n" << "\n";
+                        std::cout << "WARNING! THIS WILL SKIP THE TUTORIAL. ARE YOU SURE? WE DO NOT RECOMMEND THIS! (Y/N)";
+                        std::cin >> tutorial_skip_warning;
                         if(tutorial_skip_warning == 'N') {
-                            cout << "Good choice. " << "\n";
-                            cout << "Resetting..." << "\n" << "\n";
-                            cout << "-------------------------------------------------------------------------------------------";
-                            cout << "\n" << "\n";
+                            std::cout << "Good choice. " << "\n";
+                            std::cout << "Resetting..." << "\n" << "\n";
+                            std::cout << "-------------------------------------------------------------------------------------------";
+                            std::cout << "\n" << "\n";
                             sleep(1);
                             continue;
                         }
                         else if(tutorial_skip_warning == 'Y') {
-                            cout << "Reynauld and Dismas sit idly waiting for instructions, and are then jumped by monsters. With their ";
-                            cout << "last words, they urge you to run away. You do, and you reach the " << hamlet_name << " hamlet. ";
+                            std::cout << "Reynauld and Dismas sit idly waiting for instructions, and are then jumped by monsters. With their ";
+                            std::cout << "last words, they urge you to run away. You do, and you reach the " << hamlet_name << " hamlet. ";
                             old_road_battle_won = 1;
                             continue;
                         }
@@ -937,7 +937,7 @@ int main()
                 }
             }
         else if (save == 'N'){
-            cout << "Closing Game... ";
+            std::cout << "Closing Game... ";
             abort();
         }
     }

@@ -102,36 +102,67 @@ void goldCheck() {
     battle_riches = inventory;
     battle_riches = abnormal_inventory;
 
-    }
+}
 
-    int farmstead_enemy_RanIndex = 0+ (rand() % 5);
+//combat variables
+string enemy;
+string monster;
+string prophet_boss;
+string carpentry_sizes;
+int i = 0;
+int carpentry_RanIndex = 0+ (rand() % 3);
+int farmstead_enemy_RanIndex;
+
+string generateEnemy() {
+    string area_choice;
+    string global_enemies[6] = {"Cultist Brawler", "Brigand Cutthroat", "Brigand Fusilier", "Brigand Bloodletter", "Brigand Raider", "Brigand Hunter", };
     string enemy;
-
-    string generateEnemy() {
-        string area_choice = "F";
-        if (area_choice != "F") {
-            string brigand_spawn[5] = { "Brigand Cutthroat", "Brigand Fusilier", "Brigand Bloodletter", "Brigand Raider", "Brigand Hunter" };
-            string bone_spawn[5] = {};
+    if (area_choice == "R") {
+        string bone_spawn[7] = { "Bone Soldier", "Bone Courtier", "Bone Arbalest", "Bone Defender", "Bone Spearman", "Bone Captain", "Bone Bearer" };
+        string necromancer_difficulties[2] = { "Apprentice Necromancer", "Veteran Necromancer" };
+        string prophet_boss = "Prophet";
+        if (monster == prophet_boss) {
+            string carpentry_sizes[3] = { "Small Pew", "Medium Pew", "Large Pew" };
         }
-        else if (area_choice == "F") {
-            string astral_spawn[5] = { "Eternal Labourer", "Astral Horse", "Millmaster", "Scarecrow", "Foreman" };
-            enemy = astral_spawn[farmstead_enemy_RanIndex];
-        }
-        return enemy;
     }
-
-    void bossChance() {
-            int boss_chance = 1+ (rand() % 100);
-            if (boss_chance == 1) {
-                string boss_spawn[6] = { "The Collector", "Shambler", "Thing from the Stars", "The Shrieker", "The Brigand Vvulf", "The Fanatic" };
-            }
-            else {
-                return;
-            }
-        }
-
-    //combat engine
-    void combatEngine() {
-        bossChance();
-        cout << "If this displays, this function has been reached. ";
+    else if (area_choice == "F") {
+        string astral_spawn[4] = { "Eternal Labourer", "Astral Horse", "Scarecrow", "Foreman" };
+        int farmstead_enemy_RanIndex = 0+ (rand() % (sizeof(astral_spawn)));
+        string millmaster_boss = "Millmaster";
+        enemy = astral_spawn[farmstead_enemy_RanIndex];
     }
+    else if (area_choice == "C") {
+        string bloodsucker_spawn[2] = { "Manservant", "Esquire", };
+    }
+    return enemy;
+}
+
+void randomBossChance() {
+    int boss_chance = 1+ (rand() % 100);
+    if (boss_chance == 1) {
+        string boss_spawn[5] = { "The Collector", "Thing from the Stars", "The Shrieker", "The Brigand Vvulf", "The Fanatic" };
+        int boss_RanIndex = 0+ (rand() % (sizeof(boss_spawn)));
+        enemy = boss_spawn[boss_RanIndex];
+    }
+    else {
+        return;
+    }
+}
+
+//combat engine
+void combatEngine() {
+    randomBossChance();
+    if (monster == prophet_boss) {
+        int i = 0;
+        for (i = 0; i == 3; i++) {
+            monster = carpentry_sizes[carpentry_RanIndex];
+        }
+        if (i > 3) {
+            monster = prophet_boss;
+        }
+        else {
+            return;
+        }
+    }
+    cout << "If this displays, this function has been reached. ";
+}
