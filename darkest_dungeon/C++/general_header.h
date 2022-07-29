@@ -8,13 +8,11 @@
 #include <cstdlib>
 #include <time.h>
 
-using namespace std;
-
 void goldCheck() {
     int gold;
-    string inventory;
-    string battle_riches;
-    string abnormal_inventory = "None";
+    std::string inventory;
+    std::string battle_riches;
+    std::string abnormal_inventory = "None";
     srand((unsigned) time(NULL));
     int riches_random = 1+ (rand() % 100);
 
@@ -105,34 +103,39 @@ void goldCheck() {
 }
 
 //combat variables
-string enemy;
-string monster;
-string prophet_boss;
-string carpentry_sizes;
+std::string enemy;
+std::string prophet_boss;
+std::string carpentry_sizes;
+std::string ascii = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 int i = 0;
-int carpentry_RanIndex = 0+ (rand() % 3);
-int farmstead_enemy_RanIndex;
 
-string generateEnemy() {
-    string area_choice;
-    string global_enemies[6] = {"Cultist Brawler", "Brigand Cutthroat", "Brigand Fusilier", "Brigand Bloodletter", "Brigand Raider", "Brigand Hunter", };
-    string enemy;
+std::string generateEnemy() {
+    std::string area_choice;
+    std::string global_enemies[22] = {"Cultist Brawler", "Cultist Acolyte", "Brigand Cutthroat", "Brigand Fusilier", "Brigand Bloodletter", "Brigand Raider", "Brigand Hunter", 
+    "Madman", "Maggot", "Webber", "Spitter", "Bone Rabble", "Ghoul", "Gargoyle", "Supplicant", "Sycophant", "Gatekeeper", "Chevalier", "Pliskin", "Rattler", "Adder", "Pyre"};
+    //global enemies continued
+    std::cout << "Length of Global Enemies: " << sizeof(global_enemies) / sizeof(global_enemies[0]) << std::endl;
     if (area_choice == "R") {
-        string bone_spawn[7] = { "Bone Soldier", "Bone Courtier", "Bone Arbalest", "Bone Defender", "Bone Spearman", "Bone Captain", "Bone Bearer" };
-        string necromancer_difficulties[2] = { "Apprentice Necromancer", "Veteran Necromancer" };
-        string prophet_boss = "Prophet";
-        if (monster == prophet_boss) {
-            string carpentry_sizes[3] = { "Small Pew", "Medium Pew", "Large Pew" };
+        std::string bone_spawn[7] = { "Bone Soldier", "Bone Courtier", "Bone Arbalest", "Bone Defender", "Bone Spearman", "Bone Captain", "Bone Bearer" };
+        std::string necromancer_difficulties[2] = { "Apprentice Necromancer", "Veteran Necromancer" };
+        std::string prophet_boss = "Prophet";
+        if (enemy == prophet_boss) {
+            std::string carpentry_sizes[3] = { "Small Pew", "Medium Pew", "Large Pew" };
         }
     }
     else if (area_choice == "F") {
-        string astral_spawn[4] = { "Eternal Labourer", "Astral Horse", "Scarecrow", "Foreman" };
-        int farmstead_enemy_RanIndex = 0+ (rand() % (sizeof(astral_spawn)));
-        string millmaster_boss = "Millmaster";
+        std::string astral_spawn[4] = { "Eternal Labourer", "Astral Horse", "Scarecrow", "Foreman" };
+        int farmstead_enemy_RanIndex = 0+ (rand() % 4);
+        std::string millmaster_boss = "Millmaster";
         enemy = astral_spawn[farmstead_enemy_RanIndex];
     }
     else if (area_choice == "C") {
-        string bloodsucker_spawn[2] = { "Manservant", "Esquire", };
+        std::string bloodsucker_spawn[2] = { "Manservant", "Esquire", };
+    }
+    else if (area_choice.find(ascii) != std::string::npos) {
+        std::string testing_enemies[2] = { "Testing Enemy", "Testing Enemy 2" };
+        int testing_enemy_RanIndex = 0+ (rand() % 2);
+        enemy = testing_enemies[testing_enemy_RanIndex];
     }
     return enemy;
 }
@@ -140,8 +143,8 @@ string generateEnemy() {
 void randomBossChance() {
     int boss_chance = 1+ (rand() % 100);
     if (boss_chance == 1) {
-        string boss_spawn[5] = { "The Collector", "Thing from the Stars", "The Shrieker", "The Brigand Vvulf", "The Fanatic" };
-        int boss_RanIndex = 0+ (rand() % (sizeof(boss_spawn)));
+        std::string boss_spawn[5] = { "The Collector", "Thing from the Stars", "The Shrieker", "The Brigand Vvulf", "The Fanatic" };
+        int boss_RanIndex = 0+ (rand() % 5);
         enemy = boss_spawn[boss_RanIndex];
     }
     else {
@@ -152,17 +155,18 @@ void randomBossChance() {
 //combat engine
 void combatEngine() {
     randomBossChance();
-    if (monster == prophet_boss) {
+    if (enemy == prophet_boss) {
         int i = 0;
         for (i = 0; i == 3; i++) {
-            monster = carpentry_sizes[carpentry_RanIndex];
+            int carpentry_RanIndex = 0+ (rand() % (sizeof(carpentry_sizes)));
+            enemy = carpentry_sizes[carpentry_RanIndex];
         }
         if (i > 3) {
-            monster = prophet_boss;
+            enemy = prophet_boss;
         }
         else {
             return;
         }
     }
-    cout << "If this displays, this function has been reached. ";
+    std::cout << "If this displays, this function has been reached. ";
 }

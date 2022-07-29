@@ -5,16 +5,15 @@ int main()
     // riches
     // abnormal riches
     int gold = 2500;
-    string abnormal_inventory = "None";
+    std::string abnormal_inventory = "None";
     srand((unsigned) time(NULL));
     int riches_random = 1+ (rand() % 100);
 
     // standard riches
-    string standard_riches [7] = { "750 Gold", "500 Gold", "250 Gold", "Citrine", "Jade", "Onyx", "Minor Antique" };
+    std::string standard_riches [7] = { "750 Gold", "500 Gold", "250 Gold", "Citrine", "Jade", "Onyx", "Minor Antique" };
     srand(time(NULL));
     int RanIndex = 0+ (rand() % 7);
-    std::cout << RanIndex;
-    string inventory = standard_riches[RanIndex];
+    std::string inventory = standard_riches[RanIndex];
     
     // abnormal inventory check
     bool abnormal_inventory_check = abnormal_inventory != "None";
@@ -70,8 +69,6 @@ int main()
     std::cout << "\n" << "\n";
 
     //inventory trackers
-    generateEnemy();
-    std::cout << "\n";
     std::cout << "--------------------------------";
     std::cout << "\n" << "\n";
     std::cout << "      INVENTORY TRACKERS";
@@ -85,6 +82,7 @@ int main()
     std::cout << "Gold: " << gold;
 
     //enemy trackers
+    generateEnemy();
     std::cout << "\n" << "\n";
     std::cout << "--------------------------------";
     std::cout << "\n" << "\n";
@@ -97,7 +95,6 @@ int main()
     
     // display current date and time
     auto start = std::chrono::system_clock::now();
-    // Some computation here
     auto end = std::chrono::system_clock::now();
 
     std::chrono::duration<double> elapsed_seconds = end-start;
@@ -106,9 +103,9 @@ int main()
     std::cout << "Current Date and Time: " << std::ctime(&end_time);
 
     //starter heroes / monster - global variables
-    string highwayman = "Dismas";
-    string crusader = "Reynauld";
-    string party[4] = {highwayman, crusader, "None", "None"};
+    std::string highwayman = "Dismas";
+    std::string crusader = "Reynauld";
+    std::string party[4] = {highwayman, crusader, "None", "None"};
     int highwayman_health = 25;
     int highwayman_max_health = 25;
     int place_1_hero_health = highwayman_health;
@@ -117,13 +114,13 @@ int main()
     int crusader_max_health = 30;
     int place_2_hero_health = crusader_health;
     int place_2_hero_damage = 0;
-    string place_1_hero = crusader;
-    string place_2_hero = highwayman;
-    string place_3_hero = "None";
-    string place_4_hero = "None";
+    std::string place_1_hero = crusader;
+    std::string place_2_hero = highwayman;
+    std::string place_3_hero = "None";
+    std::string place_4_hero = "None";
     int old_road_battle_won = 0;
-    string tutorial_skip_warning = "N";
-    string monster_options;
+    std::string tutorial_skip_warning = "N";
+    std::string monster_options;
 
     // sleep random number
     srand(time(0));
@@ -166,7 +163,7 @@ int main()
         std::cin >> save;
         if (save == 'Y'){
             std::cout << "\n";
-            string hamlet_name;
+            std::string hamlet_name;
             std::cout << "                              INPUT HAMLET NAME IN UPPERCASE!" << "\n";
             std::cout << "                                  HAMLET NAME: ";
             std::cin >> hamlet_name;
@@ -230,7 +227,7 @@ int main()
                             sleep(1);
                             std::cout << "\n" << "\n";
                             if (abnormal_inventory != "None") {
-                                string old_road_fight;
+                                std::string old_road_fight;
                                 std::cout << "Inside is: ";
                                 std::cout << abnormal_inventory << "\n";
                                 std::cout << "Current Gold: " << gold;
@@ -242,7 +239,7 @@ int main()
                                 goto combat;
                             }
                             else if (abnormal_inventory == "None") {
-                                string old_road_fight;
+                                std::string old_road_fight;
                                 std::cout << "Inside is: ";
                                 std::cout << inventory << "\n";
                                 std::cout << "Current Gold: " << gold;
@@ -256,7 +253,7 @@ int main()
                                 }
                             }
                             combat:{
-                                string monster_attacks [3] = {"Point Blank Shot", "Rain of Whips", "Shank"};
+                                std::string monster_attacks [3] = {"Point Blank Shot", "Rain of Whips", "Shank"};
                                 
                                 //player turn
                                 std::cout << "Reynauld and Dismas enter the room, and find a chest in the middle. Dismas goes towards it, and are suddenly ambushed";
@@ -275,7 +272,7 @@ int main()
                                 int max_monster_health = 35;
                                 int monster_damage = 0;
                                 for (int i = 0; i < 3; i++) {
-                                    string monster_options;
+                                    std::string monster_options;
                                     int monster_attack_RanIndex = 1+ (rand() % 2);
                                     int monster_attack_choice = 1+ (rand() % 2);
                                     monster_options = monster_attacks[monster_attack_RanIndex];
@@ -291,7 +288,7 @@ int main()
                                     int place_2_hero_health = highwayman_health;
                                     monster_damage = 0+ (rand() % 8);
                                     if (monster_damage == 0) {
-                                        string monster_damage = "Miss";
+                                        std::string monster_damage = "Miss";
                                     }
                                     int place_1_hero_damage = monster_damage;
                                     int place_2_hero_damage = 0;
@@ -306,7 +303,7 @@ int main()
                                     int place_2_hero_health = highwayman_health;
                                     monster_damage = 1+ (rand() % 4);
                                     if (monster_damage == 0) {
-                                        string monster_damage = "Miss";
+                                        std::string monster_damage = "Miss";
                                     }
                                     int place_1_hero_damage = monster_damage;
                                     int place_2_hero_damage = monster_damage;
@@ -324,7 +321,7 @@ int main()
                                         int place_2_hero_health = highwayman_health;
                                         int monster_damage = 1+ (rand() % 7);
                                         if (monster_damage == 0) {
-                                            string monster_damage = "Miss";
+                                            std::string monster_damage = "Miss";
                                         }
                                         int place_1_hero_damage = monster_damage;
                                         int place_2_hero_damage = 0;
@@ -346,7 +343,7 @@ int main()
                                     }
                                 }
                             }
-                                    string crusader_options = "NULL";
+                                    std::string crusader_options = "NULL";
                                     while (true) {
                                         std::cout << "It is " + crusader + "'s turn. What does " + crusader + " do? Attack (A) Guard (G) ";
                                         std::cin >> crusader_options;
@@ -369,7 +366,7 @@ int main()
                                             if (crit_random <= crit_chance) {
                                                 herodamage = 12;
                                             }
-                                            string battle_rewards;
+                                            std::string battle_rewards;
                                             monster_health = monster_health - herodamage;
                                             std::cout << "\n" << "\n";
                                             std::cout << "--------------------------------------------------------------------------------------------";
@@ -403,14 +400,14 @@ int main()
                                             if (monster_health <= 0) {
                                                 std::cout << "As the fiend falls, a faint hope blossoms. ";
                                                 std::cout << "Battle won!";
-                                                string battle_rewards = standard_riches[RanIndex];
+                                                std::string battle_rewards = standard_riches[RanIndex];
                                                 std::cout << "Rewards: " << battle_rewards;
                                                 std::cout << gold;
                                                 old_road_battle_won = 1;
                                                 goto accept_heroes;
                                             }
                                         }
-                                        string highwayman_options = "NULL";
+                                        std::string highwayman_options = "NULL";
                                         std::cout << "It is " << highwayman << "'s turn. What does " << highwayman << " do? Attack (A) Guard (G) ";
                                         std::cin >> highwayman_options;
                                         std::cout << "\n";
@@ -427,14 +424,14 @@ int main()
                                                 if (monster_health <= 0) {
                                                     std::cout << "As the fiend falls, a faint hope blossoms. ";
                                                     std::cout << "Battle won!";
-                                                    string battle_rewards = standard_riches[RanIndex];
+                                                    std::string battle_rewards = standard_riches[RanIndex];
                                                     std::cout << "Rewards: " << battle_rewards;
                                                     std::cout << gold;
                                                     old_road_battle_won = 1;
                                                     goto accept_heroes;
                                                 }          
                                             }
-                                            string highwayman_attack = "NULL";
+                                            std::string highwayman_attack = "NULL";
                                             std::cout << "Which does " << highwayman << " attack with? Gun (G) Dagger (D) ";
                                             std::cin >> highwayman_attack;
                                             if (highwayman_attack == "G") {
@@ -458,7 +455,7 @@ int main()
                                                     if (monster_health <= 0) {
                                                         std::cout << "As the fiend falls, a faint hope blossoms. ";
                                                         std::cout << "Battle won!";
-                                                        string battle_rewards = standard_riches[RanIndex];
+                                                        std::string battle_rewards = standard_riches[RanIndex];
                                                         std::cout << "Rewards: " << battle_rewards;
                                                         std::cout << gold;
                                                         old_road_battle_won = 1;
@@ -486,7 +483,7 @@ int main()
                                                 if (monster_health <= 0) {
                                                         std::cout << "As the fiend falls, a faint hope blossoms. ";
                                                         std::cout << "Battle won!";
-                                                        string battle_rewards = standard_riches[RanIndex];
+                                                        std::string battle_rewards = standard_riches[RanIndex];
                                                         std::cout << "Rewards: " << battle_rewards;
                                                         std::cout << gold;
                                                         old_road_battle_won = 1;
@@ -545,17 +542,17 @@ int main()
                                 }
                             }
                             accept_heroes:{
-                                string stagecoach_hero_1;
-                                string stagecoach_hero_2;
-                                string stagecoach_hero_3;
-                                string stagecoach_hero_4;
-                                string standby_hero_1 = "None";
-                                string standby_hero_2 = "None";
-                                string standby_hero_3 = "None";
-                                string standby_hero_4 = "None";
-                                string stagecoach_hero_choice;
-                                string plague_doctor;
-                                string vestal;
+                                std::string stagecoach_hero_1;
+                                std::string stagecoach_hero_2;
+                                std::string stagecoach_hero_3;
+                                std::string stagecoach_hero_4;
+                                std::string standby_hero_1 = "None";
+                                std::string standby_hero_2 = "None";
+                                std::string standby_hero_3 = "None";
+                                std::string standby_hero_4 = "None";
+                                std::string stagecoach_hero_choice;
+                                std::string plague_doctor;
+                                std::string vestal;
                                 std::cout << "As the monster falls to the ground, defeated, our heroes breathe a sigh of relief, and continue their pilgrimage to the hamlet. " << "\n";
                                 std::cout << "Onc our heroes arrive, they find a town, old and forgotten. However, though, it shall prove its worth to our heroes, since it can ";
                                 std::cout << "still provide warmth and respite from the chill of battle. ";
@@ -604,11 +601,11 @@ int main()
                                     }
                                 }
                                 hero_assign:{
-                                string assign_choice = "NULL";
+                                std::string assign_choice = "NULL";
                                 int assign_place = 0;
-                                string assign_hero = "NULL";
-                                string plague_doctor_abilities [3] = {"Knife", "Blighted Throw", "Buff"};
-                                string vestal_abilities [3] = {"Mace Swing", "Strike of the Gods", "Holy Heal"};
+                                std::string assign_hero = "NULL";
+                                std::string plague_doctor_abilities [3] = {"Surgical Incision", "Blighted Throw", "Buff"};
+                                std::string vestal_abilities [3] = {"Mace Swing", "Strike of the Gods", "Holy Heal"};
                                 std::cout << "Assigning heroes is permanent, so be ";
                                 std::cout << "confident in your choices before you make them. " << "\n";
                                 std::cout << "Would you like to assign these heroes? (Y/N)" << "\n";
@@ -748,10 +745,10 @@ int main()
                                     goto mission_choice;
                                 }
                                 mission_choice:{
-                                    string area_insurance;
-                                    string pause_choice;
-                                    string accept_mission;
-                                    string area_choice;
+                                    std::string area_insurance;
+                                    std::string pause_choice;
+                                    std::string accept_mission;
+                                    std::string area_choice;
                                     std::cout << "Since the heroes have been assigned,it is now " << "\n";
                                     std::cout << "in your best interest to go out on a mission. Do you wish to head out? (Y/N)" << "\n";
                                     std::cin >> accept_mission;
@@ -790,7 +787,7 @@ int main()
 
                                         //farmstead gameplay
                                         farmstead:{
-                                            string farmstead_enter;
+                                            std::string farmstead_enter;
                                             std::cout << "Inside the farmstead, torches are not required, as the ";
                                             std::cout << "meteor that recently struck the farmstead released an astral light. " << "\n";
                                             std::cout << "In the tutorial, you skipped the lesson on the torch. The torch is now included. " << "\n";
@@ -811,7 +808,7 @@ int main()
                                                 std::cout << "May the harvest never end! " << "\n";
                                                 bool eternal_harvest = true;
                                                 while (eternal_harvest == true) {
-                                                    string farmstead_choice;
+                                                    std::string farmstead_choice;
                                                     std::cout << "The combat begins! " << "\n";
                                                     farmstead_combat:{
                                                         generateEnemy();
@@ -819,11 +816,11 @@ int main()
                                                         std::cout << "What do you do? You may Retreat, Attack or Defend. (R/A/D)" << "\n";
                                                         std::cin >> farmstead_choice;
                                                         if (farmstead_choice == "R") {
-                                                            string farmstead_retreat;
+                                                            std::string farmstead_retreat;
                                                             std::cout << "Are you confident that you wish to retreat? (Y/N)" << "\n";
                                                             std::cin >> farmstead_retreat;
                                                             if (farmstead_retreat == "Y") {
-                                                                string retreat_aftermath;
+                                                                std::string retreat_aftermath;
                                                                 std::cout << "You have retreated from battle, and are now safe. " << "\n";
                                                                 std::cout << "Do you wish to return to the hamlet, re-enter the battle, or rest for a bit? (H/B/R)" << "\n";
                                                                 std::cout << "H = Return to the hamlet, B = Re-enter the battle. " << "\n";
@@ -837,7 +834,7 @@ int main()
                                                                     goto farmstead_combat;
                                                                 }
                                                                 else if (retreat_aftermath == "R") {
-                                                                    string farmstead_rest;
+                                                                    std::string farmstead_rest;
                                                                     std::cout << "You have chosen to take a small rest. " << "\n";
                                                                     std::cout << "You may go to sleep, which will allow you to regain some health, but you may be ambushed in the night. " << "\n";
                                                                     std::cout << "Or, you can continue adventuring. " << "\n";
@@ -883,11 +880,7 @@ int main()
                                             std::cout << "Closing Game...";
                                             std::cout << "You may now close the program. ";
                                             goto exit;
-                                        }//remove after testing
-        string astral_spawn[5] = { "Eternal Labourer", "Astral Horse", "Millmaster", "Scarecrow", "Foreman" };
-        string enemy = astral_spawn[farmstead_enemy_RanIndex];
-        std::cout << "Enemy: " << enemy;
-        //removal end
+                                        }
                                     }
                                     else if (accept_mission != "Y") {
                                         std::cout << "PAUSE MENU";
