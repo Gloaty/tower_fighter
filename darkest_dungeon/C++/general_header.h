@@ -106,21 +106,29 @@ void goldCheck() {
 std::string enemy;
 std::string prophet_boss;
 std::string carpentry_sizes;
+std::string collected_spawn;
 std::string ascii = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-int i = 0;
 
 std::string generateEnemy() {
     std::string area_choice;
     std::string global_enemies[22] = {"Cultist Brawler", "Cultist Acolyte", "Brigand Cutthroat", "Brigand Fusilier", "Brigand Bloodletter", "Brigand Raider", "Brigand Hunter", 
     "Madman", "Maggot", "Webber", "Spitter", "Bone Rabble", "Ghoul", "Gargoyle", "Supplicant", "Sycophant", "Gatekeeper", "Chevalier", "Pliskin", "Rattler", "Adder", "Pyre"};
+    int global_RanIndex = 0+ (rand() % (sizeof(global_enemies)/sizeof(global_enemies[0])));
     //global enemies continued
-    std::cout << "Length of Global Enemies: " << sizeof(global_enemies) / sizeof(global_enemies[0]) << std::endl;
     if (area_choice == "R") {
         std::string bone_spawn[7] = { "Bone Soldier", "Bone Courtier", "Bone Arbalest", "Bone Defender", "Bone Spearman", "Bone Captain", "Bone Bearer" };
+        int bone_RanIndex = 0+ (rand() % (sizeof(bone_spawn)/sizeof(bone_spawn[0])));
         std::string necromancer_difficulties[2] = { "Apprentice Necromancer", "Veteran Necromancer" };
         std::string prophet_boss = "Prophet";
         if (enemy == prophet_boss) {
             std::string carpentry_sizes[3] = { "Small Pew", "Medium Pew", "Large Pew" };
+        }
+        int global_or_area_enemy = 0 + (rand() % 2);
+        if (global_or_area_enemy == 1) {
+            enemy = global_enemies[global_RanIndex];
+        }
+        else if (global_or_area_enemy == 2) {
+            enemy = bone_spawn[bone_RanIndex];
         }
     }
     else if (area_choice == "F") {
@@ -146,6 +154,9 @@ void randomBossChance() {
         std::string boss_spawn[5] = { "The Collector", "Thing from the Stars", "The Shrieker", "The Brigand Vvulf", "The Fanatic" };
         int boss_RanIndex = 0+ (rand() % 5);
         enemy = boss_spawn[boss_RanIndex];
+        if (enemy == "The Collector") {
+            std::string collected_spawn[3] = { "Collected Highwayman", "Collected Man-at-Arms", "Collected Vestal" };
+        }
     }
     else {
         return;
@@ -155,8 +166,9 @@ void randomBossChance() {
 //combat engine
 void combatEngine() {
     randomBossChance();
+    // special enemy cases
+    int i = 0;
     if (enemy == prophet_boss) {
-        int i = 0;
         for (i = 0; i == 3; i++) {
             int carpentry_RanIndex = 0+ (rand() % (sizeof(carpentry_sizes)));
             enemy = carpentry_sizes[carpentry_RanIndex];
@@ -168,5 +180,109 @@ void combatEngine() {
             return;
         }
     }
+    if (enemy == "The Collector") {
+        for (i = 0; i == 3; i++) {
+            int collected_RanIndex = 0+ (rand() % (sizeof(collected_spawn)));
+            enemy = collected_spawn[collected_RanIndex];
+        }
+        if (i > 3) {
+            enemy = "The Collector";
+        }
+        else {
+            return;
+        }
+    }
     std::cout << "If this displays, this function has been reached. ";
+}
+
+//farmstead combat variables
+std::string farmstead_choice;
+int hamlet_return;
+
+void farmsteadCombatEngine() {
+    generateEnemy();
+    std::cout << "A terrible " << enemy << " awakens from the astral light. " << "\n";
+    std::cout << "What do you do? You may Retreat, Attack or Defend. (R/A/D)" << "\n";
+    std::cin >> farmstead_choice;
+    if (farmstead_choice == "R") {
+        std::string farmstead_retreat;
+        std::cout << "Are you confident that you wish to retreat? (Y/N)" << "\n";
+        std::cin >> farmstead_retreat;
+        if (farmstead_retreat == "Y") {
+            std::string retreat_aftermath;
+            std::cout << "You have retreated from battle, and are now safe. " << "\n";
+            std::cout << "Do you wish to return to the hamlet, re-enter the battle, or rest for a bit? (H/B/R)" << "\n";
+            std::cout << "H = Return to the hamlet, B = Re-enter the battle. " << "\n";
+            std::cin >> retreat_aftermath;
+            if (retreat_aftermath == "H") {
+                std::cout << "You have returned to the hamlet. " << "\n";
+                hamlet_return = 1;
+                return;
+            }
+            else if (retreat_aftermath == "B") {
+                std::cout << "You have re-entered the battle. " << "\n";
+                farmsteadCombatEngine();
+            }
+            else if (retreat_aftermath == "R") {
+                std::string farmstead_rest;
+                std::cout << "You have chosen to take a small rest. " << "\n";
+                std::cout << "You may go to sleep, which will allow you to regain some health, but you may be ambushed in the night. " << "\n";
+                std::cout << "Or, you can continue adventuring. " << "\n";
+                std::cout << "Do you wish to go to sleep or continue adventuring? (S/C)" << "\n";
+                std::cin >> farmstead_rest;
+                if (farmstead_rest == "S") {
+                    std::cout << "You have chosen to go to sleep. " << "\n";
+                    int ambush_chance = rand() % 100 + 1;
+                    std::cout << "Ambush chance: " << ambush_chance << "\n";
+                    if (ambush_chance <= 30) {
+                        std::cout << "You have been ambushed by a group of enemies! " << "\n";
+                        std::cout << "Combat is beginning now! " << "\n";
+                        farmsteadCombatEngine();
+                    }
+                }
+            }
+            else {
+                std::cout << "You have re-entered the battle. " << "\n";
+                farmsteadCombatEngine();
+            }
+        }
+        else if (farmstead_retreat == "N") {
+            std::cout << "You have decided to not retreat. " << "\n";
+            farmsteadCombatEngine();;
+        }
+        else {
+            std::cout << "You have decided to not retreat. " << "\n";
+            farmsteadCombatEngine();;
+        }
+    }
+}
+
+void farmsteadEndDialogue() {
+    std::cout << "Gasping for air, you run away from the horrors of the stars. " << "\n";
+    std::cout << "You have returned to the hamlet. " << "\n";
+    if (hamlet_return == 1) {
+        hamlet_return = 0;
+    }
+    else {
+        return;
+    }
+}
+
+void outsideStatementShell() {
+    if (hamlet_return ==  1) {
+    farmsteadEndDialogue();
+    }
+    return;
+}
+
+void betaTestThanks() {
+    std::cout << "Thanks for Beta Testing. We seriously appreciate";
+    std::cout << " you supporting the development of this small passion project. ";
+    std::cout << "We will keep you updated for the future. Have a great day! ";
+    std::cout << "Closing Game...";
+    std::cout << "You may now close the program. ";
+}
+
+int closeGame() {
+    return 0;
 }

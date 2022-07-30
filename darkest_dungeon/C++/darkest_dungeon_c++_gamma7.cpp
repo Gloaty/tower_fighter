@@ -1,4 +1,4 @@
-#include </home/gloaty/Desktop/Coding/tower_fighter/darkest_dungeon/C++/general_header.h>
+#include </media/gloaty/20EF-2B87/Coding/Projects/tower_fighter/darkest_dungeon/C++/general_header.h>
 
 int main()
 {
@@ -121,6 +121,7 @@ int main()
     int old_road_battle_won = 0;
     std::string tutorial_skip_warning = "N";
     std::string monster_options;
+    int week_number = 0;
 
     // sleep random number
     srand(time(0));
@@ -542,6 +543,7 @@ int main()
                                 }
                             }
                             accept_heroes:{
+                                week_number++;
                                 std::string stagecoach_hero_1;
                                 std::string stagecoach_hero_2;
                                 std::string stagecoach_hero_3;
@@ -765,7 +767,7 @@ int main()
                                         std::cin >> area_choice;
                                         if (area_choice == "R") {
                                             std::cout << "Selected Area: Ruins..." << "\n";
-                                            goto beta_test_thanks;
+                                            betaTestThanks();
                                         }
                                         else if (area_choice == "F") {
                                             std::cout << "Selected Area: Farmstead..." << "\n";
@@ -777,11 +779,11 @@ int main()
                                             }
                                             else if (area_insurance == "N") {
                                                 std::cout << "You have decided to not enter the farmstead. " << "\n";
-                                                goto beta_test_thanks;
+                                                betaTestThanks();
                                             }
                                             else {
                                                 std::cout << "You have decided to not enter the farmstead. " << "\n";
-                                                goto beta_test_thanks;
+                                                betaTestThanks();
                                             }
                                         }
 
@@ -843,6 +845,7 @@ int main()
                                                                     if (farmstead_rest == "S") {
                                                                         std::cout << "You have chosen to go to sleep. " << "\n";
                                                                         int ambush_chance = rand() % 100 + 1;
+                                                                        std::cout << "Ambush chance: " << ambush_chance << "\n";
                                                                         if (ambush_chance <= 30) {
                                                                             std::cout << "You have been ambushed by a group of enemies! " << "\n";
                                                                             std::cout << "Combat is beginning now! " << "\n";
@@ -870,7 +873,7 @@ int main()
                                             }
                                             farmstead_end:{
                                                 std::cout << "You have returned to the hamlet. " << "\n";
-                                                goto beta_test_thanks;
+                                                betaTestThanks();
                                             }
                                         }
                                         beta_test_thanks:{
@@ -879,7 +882,7 @@ int main()
                                             std::cout << "We will keep you updated for the future. Have a great day! ";
                                             std::cout << "Closing Game...";
                                             std::cout << "You may now close the program. ";
-                                            goto exit;
+                                            closeGame();
                                         }
                                     }
                                     else if (accept_mission != "Y") {
@@ -893,7 +896,7 @@ int main()
                                         }
                                         else if (pause_choice == "Q") {
                                             std::cout << "Closing Game... ";
-                                            abort();
+                                            closeGame();
                                         }
                                     }
                                 }
@@ -931,12 +934,8 @@ int main()
             }
         else if (save == 'N'){
             std::cout << "Closing Game... ";
-            abort();
+            closeGame();
         }
-    }
-
-    exit:{
-        return 0;
     }
 
   return 0;
