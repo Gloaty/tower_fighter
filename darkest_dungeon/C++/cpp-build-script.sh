@@ -1,1 +1,1 @@
-g++ -o gamma7_built-code /home/gloaty/Desktop/Coding/tower_fighter/darkest_dungeon/C++/darkest_dungeon_c++_gamma7.cpp
+g++ -o gamma8_built-code /home/gloaty/Desktop/Coding/tower_fighter/darkest_dungeon/C++/darkest_dungeon_c++_gamma8.cpp

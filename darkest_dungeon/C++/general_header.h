@@ -102,6 +102,135 @@ void goldCheck() {
 
 }
 
+// health recovery data
+std::string place_1_hero;
+std::string place_2_hero;
+std::string place_3_hero;
+std::string place_4_hero;
+std::string crusader;
+std::string highwayman;
+std::string plague_doctor;
+std::string vestal;
+int crusader_health;
+int highwayman_health;
+int plague_doctor_health;
+int vestal_health;
+int crusader_max_health;
+int highwayman_max_health;
+int plague_doctor_max_health;
+int vestal_max_health;
+std::string sleep_confirmation = "-";
+
+void healthRecovery() {
+    int health_recovery;
+    std::cout << "You manage to get some rest in the night. " << "\n";
+    if (sleep_confirmation == "+") {
+        int sleep_recovery = rand() % 15;
+        health_recovery = sleep_recovery;
+    }
+    else
+    std::cout << "You have recovered " << health_recovery << " health. " << "\n";
+    if (place_1_hero == crusader) {
+        crusader_health += health_recovery;
+        if (crusader_health > crusader_max_health) {
+            crusader_health = crusader_max_health;
+        }
+    }
+     if (place_2_hero == crusader) {
+        crusader_health += health_recovery;
+        if (crusader_health > crusader_max_health) {
+            crusader_health = crusader_max_health;
+        }
+    }
+    if (place_3_hero == crusader) {
+        crusader_health += health_recovery;
+        if (crusader_health > crusader_max_health) {
+            crusader_health = crusader_max_health;
+        }
+    }
+    if (place_4_hero == crusader) {
+        crusader_health += health_recovery;
+        if (crusader_health > crusader_max_health) {
+            crusader_health = crusader_max_health;
+        }
+    }
+    //highwayman sleep recovery
+    if (place_1_hero == highwayman) {
+        highwayman_health += health_recovery;
+        if (highwayman_health > highwayman_max_health) {
+            highwayman_health = highwayman_max_health;
+        }
+    }
+    else if (place_2_hero == highwayman) {
+        highwayman_health += health_recovery;
+        if (highwayman_health > highwayman_max_health) {
+            highwayman_health = highwayman_max_health;
+        }
+    }
+    else if (place_3_hero == highwayman) {
+        highwayman_health += health_recovery;
+        if (highwayman_health > highwayman_max_health) {
+            highwayman_health = highwayman_max_health;
+        }
+    }
+    else if (place_4_hero == highwayman) {
+        highwayman_health += health_recovery;
+        if (highwayman_health > highwayman_max_health) {
+            highwayman_health = highwayman_max_health;
+        }
+    }
+    //plague doctor sleep recovery
+    if (place_1_hero == plague_doctor) {
+        plague_doctor_health += health_recovery;
+        if (plague_doctor_health > plague_doctor_max_health) {
+            plague_doctor_health = plague_doctor_max_health;
+        }
+    }
+    else if (place_2_hero == plague_doctor) {
+        plague_doctor_health += health_recovery;
+        if (plague_doctor_health > plague_doctor_max_health) {
+            plague_doctor_health = plague_doctor_max_health;
+        }
+    }
+    else if (place_3_hero == plague_doctor) {
+        plague_doctor_health += health_recovery;
+        if (plague_doctor_health > plague_doctor_max_health) {
+            plague_doctor_health = plague_doctor_max_health;
+        }
+    }
+    else if (place_4_hero == plague_doctor) {
+        plague_doctor_health += health_recovery;
+        if (plague_doctor_health > plague_doctor_max_health) {
+            plague_doctor_health = plague_doctor_max_health;
+        }
+    }
+    //vestal sleep recovery
+    if (place_1_hero == vestal) {
+        vestal_health += health_recovery;
+        if (vestal_health > vestal_max_health) {
+            vestal_health = vestal_max_health;
+        }
+    }
+    else if (place_2_hero == vestal) {
+        vestal_health += health_recovery;
+        if (vestal_health > vestal_max_health) {
+            vestal_health = vestal_max_health;
+        }
+    }
+    else if (place_3_hero == vestal) {
+        vestal_health += health_recovery;
+        if (vestal_health > vestal_max_health) {
+            vestal_health = vestal_max_health;
+        }
+    }
+    else if (place_4_hero == vestal) {
+        vestal_health += health_recovery;
+        if (vestal_health > vestal_max_health) {
+            vestal_health = vestal_max_health;
+        }
+    }
+}
+
 //combat variables
 std::string enemy;
 std::string prophet_boss;
@@ -239,6 +368,10 @@ void farmsteadCombatEngine() {
                         std::cout << "Combat is beginning now! " << "\n";
                         farmsteadCombatEngine();
                     }
+                    else {
+                        sleep_confirmation = "+";
+                        healthRecovery();
+                    }
                 }
             }
             else {
@@ -255,6 +388,9 @@ void farmsteadCombatEngine() {
             farmsteadCombatEngine();;
         }
     }
+    else if (farmstead_choice == "A") {
+
+    }
 }
 
 void farmsteadEndDialogue() {
@@ -268,13 +404,6 @@ void farmsteadEndDialogue() {
     }
 }
 
-void outsideStatementShell() {
-    if (hamlet_return ==  1) {
-    farmsteadEndDialogue();
-    }
-    return;
-}
-
 void betaTestThanks() {
     std::cout << "Thanks for Beta Testing. We seriously appreciate";
     std::cout << " you supporting the development of this small passion project. ";
@@ -285,4 +414,11 @@ void betaTestThanks() {
 
 int closeGame() {
     return 0;
+}
+
+void outsideStatementShell() {
+    if (hamlet_return ==  1) {
+    farmsteadEndDialogue();
+    }
+    return;
 }
