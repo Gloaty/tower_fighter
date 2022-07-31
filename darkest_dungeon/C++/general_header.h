@@ -8,6 +8,10 @@
 #include <cstdlib>
 #include <time.h>
 
+void hamlet() {
+    std::cout << "You have returned to the Hamlet" << "\n";
+}
+
 void goldCheck() {
     int gold;
     std::string inventory;
@@ -237,6 +241,9 @@ std::string prophet_boss;
 std::string carpentry_sizes;
 std::string collected_spawn;
 std::string ascii = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+int herodamage;
+int global_or_area_enemy = 0 + (rand() % 2);
+int global_or_area_enemy_display = 1;
 
 std::string generateEnemy() {
     std::string area_choice;
@@ -245,34 +252,68 @@ std::string generateEnemy() {
     int global_RanIndex = 0+ (rand() % (sizeof(global_enemies)/sizeof(global_enemies[0])));
     //global enemies continued
     if (area_choice == "R") {
-        std::string bone_spawn[7] = { "Bone Soldier", "Bone Courtier", "Bone Arbalest", "Bone Defender", "Bone Spearman", "Bone Captain", "Bone Bearer" };
-        int bone_RanIndex = 0+ (rand() % (sizeof(bone_spawn)/sizeof(bone_spawn[0])));
-        std::string necromancer_difficulties[2] = { "Apprentice Necromancer", "Veteran Necromancer" };
+        //enemies
+        std::string ruins_enemies[7] = { "Bone Soldier", "Bone Courtier", "Bone Arbalest", "Bone Defender", "Bone Spearman", "Bone Captain", "Bone Bearer" };
+        int ruins_RanIndex = 0+ (rand() % (sizeof(ruins_enemies)/sizeof(ruins_enemies[0])));
+        enemy = ruins_enemies[ruins_RanIndex];
+        //bosses
+        std::string necromancer_difficulties[3] = { "Apprentice Necromancer", "Veteran Necromancer", "Champion Necromancer" };
         std::string prophet_boss = "Prophet";
         if (enemy == prophet_boss) {
             std::string carpentry_sizes[3] = { "Small Pew", "Medium Pew", "Large Pew" };
         }
-        int global_or_area_enemy = 0 + (rand() % 2);
         if (global_or_area_enemy == 1) {
             enemy = global_enemies[global_RanIndex];
         }
         else if (global_or_area_enemy == 2) {
-            enemy = bone_spawn[bone_RanIndex];
+            enemy = ruins_enemies[ruins_RanIndex];
         }
     }
+    else if (area_choice == "WA") {
+        //enemies
+        std::string warrens_enemies[8] = { "Swine Chopper", "Swine Slasher", "Swine Wretch", "Swine Drummer", "Swinetaur", "Swine Skiver", "Carrion Eater", "Large Carrion Eater"  };
+        int warrens_RanIndex = 0+ (rand() % (sizeof(warrens_enemies)/sizeof(warrens_enemies[0])));
+        enemy = warrens_enemies[warrens_RanIndex];
+        //bosses
+        std::string swine_royalty_difficulties[3] = { "Swine Prince", "Wilbur", "Swine King" };
+        std::string formless_flesh[4] = { "Flesh Heart", "Flesh Face", "Flesh Bone", "Flesh Butt" };
+    }
+    else if (area_choice == "WE") {
+        std::string weald_enemies_spawn[8] = { "Unclean Giant", "Blighted Giant", "Corrupted Giant", "Fungal Scratcher", "Fungal Artillery", "Necrotic Fungus", "Ectoplasm", "Large Ectoplasm" };
+        int  weald_enemies_RanIndex = 0+ (rand() % (sizeof(weald_enemies_spawn)/sizeof(weald_enemies_spawn[0])));
+        enemy = weald_enemies_spawn[weald_enemies_RanIndex];
+        //bosses
+        std::string hag_difficulties[3] = { "Apprentice Hag", "Veteran Hag", "Champion Hag" };
+        std::string brigand_pounder = "Brigand Pounder";
+    }
+    else if (area_choice == "COV") {
+        //bosses
+        std::string siren_boss = "Siren";
+        std::string drowned_crew[2] = { "Drowned Crew", "Drowned Anchorman" };
+    }
     else if (area_choice == "F") {
-        std::string astral_spawn[4] = { "Eternal Labourer", "Astral Horse", "Scarecrow", "Foreman" };
-        int farmstead_enemy_RanIndex = 0+ (rand() % 4);
-        std::string millmaster_boss = "Millmaster";
+        //enemies
+        std::string astral_spawn[5] = { "Farmhand", "Foreman", "Scarecrow", "Plow Horse", "Crystalline Abberation", "Sleeper's Dream", "Sleeper's Herald", 
+        "Frozen Farmhand", "Fracture", "Focus Point" };
+        //astral spawn continued
+        std::string unfinished_abberation = { "Traumatic Unfinished Aberration", "Pestilential Unfinished Aberration", "Temporal Unfinished Aberration", 
+        "Unstable Unfinished Aberration", "Adamantite Unfinished Aberration" }
+        //bosses
+        std::string farmstead_bosses = "Millmaster";
         enemy = astral_spawn[farmstead_enemy_RanIndex];
     }
-    else if (area_choice == "C") {
+    else if (area_choice == "COU") {
         std::string bloodsucker_spawn[2] = { "Manservant", "Esquire", };
+        int bloodsucker_enemy_RanIndex = 0+ (rand() & (sizeof(bloodsucker_spawn)/sizeof(bloodsucker_spawn[0])));
+        enemy = bloodsucker_spawn[bloodsucker_enemy_RanIndex];
     }
-    else if (area_choice.find(ascii) != std::string::npos) {
+    else if (area_choice == "WSWSADADBA") {
         std::string testing_enemies[2] = { "Testing Enemy", "Testing Enemy 2" };
         int testing_enemy_RanIndex = 0+ (rand() % 2);
         enemy = testing_enemies[testing_enemy_RanIndex];
+    }
+    else if (area_choice.find(ascii) != std::string::npos) {
+        enemy = "Omega Darkness";
     }
     return enemy;
 }
@@ -412,6 +453,19 @@ void betaTestThanks() {
     std::cout << "You may now close the program. ";
 }
 
+int crusaderReroll(){
+    while (herodamage < 6) {
+        std::cout << "Hero Damage Reroll: OK" << "\n";
+        herodamage = 0+ (rand() % 11);
+        if (herodamage < 6) {
+            crusaderReroll();
+        }
+        else {
+            return herodamage;
+        }
+    }
+}
+
 int closeGame() {
     return 0;
 }
@@ -420,5 +474,13 @@ void outsideStatementShell() {
     if (hamlet_return ==  1) {
     farmsteadEndDialogue();
     }
+    else if (global_or_area_enemy_display == 1) {
+        bool i = true;
+        while (i == true) {
+            std::cout << "Global or Area Enemy Choice: " << global_or_area_enemy << "\n";
+        }
+    }
     return;
 }
+//run above function
+outsideStatementShell();
