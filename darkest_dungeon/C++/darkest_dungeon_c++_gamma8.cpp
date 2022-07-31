@@ -351,16 +351,7 @@ int main()
                                         if (crusader_options == "A") {
                                             int herodamage = 0+ (rand() % 11);
                                             std::cout << "Hero Damage: " << herodamage << "\n";
-                                            
-                                        reroll:{
-                                            while (herodamage < 6) {
-                                                std::cout << "Hero Damage Reroll: OK" << "\n";
-                                                herodamage = 0+ (rand() % 11);
-                                                if (herodamage < 6) {
-                                                    goto reroll;
-                                                }
-                                            }
-                                        }
+                                            crusaderReroll();
                                             std::cout << "Rerolled Hero Damage: " << herodamage;
                                             int crit_chance = 5;
                                             int crit_random = 0+ (rand() % 101);
@@ -757,14 +748,17 @@ int main()
                                     std::cin >> accept_mission;
                                     if (accept_mission == "Y") {
                                         std::cout << "Your bravery is noted! There are 6 regions for your heroes to explore, and perish in. " << "\n";
-                                        std::cout << "There is the Weald, Ruins, Farmstead, Darkest Dungeon, Cove, and the Warrens. " << "\n";
+                                        std::cout << "There is the Weald, Ruins, Farmstead, Darkest Dungeon, Cove, Courtyard, and the Warrens. " << "\n";
                                         std::cout << "Ruins = R" << "\n";
                                         std::cout << "Weald = WE" << "\n";
-                                        std::cout << "Cove = C" << "\n";
+                                        std::cout << "Warrens = WA" << "\n";
+                                        std::cout << "Cove = COV" << "\n";
+                                        std::cout << "Courtyard = COU" << "\n";
                                         std::cout << "Darkest Dungeon = DD" << "\n";
                                         std::cout << "Farmstead = F" << "\n";
-                                        std::cout << "Where do you wish to go adventuring? (R/WE/WA/C/DD/F)" << "\n";
-                                        std::cout << "WARNING: At the time, only the ruins are functional. " << "\n";
+                                        std::cout << "Where do you wish to go adventuring? (R/WE/WA/COV/COU/DD/F)" << "\n";
+                                        std::cout << "WARNING: At the time, only the ruins + farmstead are functional. " << "\n";
+                                        std::cout << "KNOWLEDGE: Most region's enemies have been implemented. I just need to add in the gameplay." << "\n";
                                         std::cin >> area_choice;
                                         if (area_choice == "R") {
                                             std::cout << "Selected Area: Ruins..." << "\n";
